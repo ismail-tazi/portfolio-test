@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retail sales performance dashboard — Ismail Tazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case-study.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="../index.html">Ismail <span>T.</span></a>
+    <div class="back-link">
+      <a href="../index.html#work" data-i18n="nav.back">&larr; all projects</a>
+      <button class="lang-toggle mono" id="langToggle" aria-label="Switch language">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="case-header">
+      <span class="case-eyebrow" data-i18n="cat">Data Analyst</span>
+      <h1 data-i18n="title">Retail sales performance dashboard</h1>
+      <div class="case-metric" data-i18n="metric">Branch-level YoY variance across 4 regions</div>
+
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.field.label">Field</span>
+          <span class="meta-val" data-i18n="cat">Data Analyst</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.role.label">My role</span>
+          <span class="meta-val" data-i18n="meta.role.val">Data Analyst (Work-Study)</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.tools.label">Core tools</span>
+          <span class="meta-val">SQL · Power BI · DAX</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="98" width="18" height="40" fill="#FDF0D5" opacity="0.55"/>
+            <rect x="58" y="80" width="18" height="58" fill="#FDF0D5" opacity="0.7"/>
+            <rect x="86" y="60" width="18" height="78" fill="#C1121F"/>
+            <rect x="114" y="90" width="18" height="48" fill="#FDF0D5" opacity="0.55"/>
+            <rect x="142" y="70" width="18" height="68" fill="#FDF0D5" opacity="0.7"/>
+            <line x1="24" y1="144" x2="205" y2="144" stroke="#FDF0D5" stroke-width="1" opacity="0.3"/>
+            <path d="M178 52 L190 62 L204 38" stroke="#C1121F" stroke-width="2" fill="none" opacity="0.9"/>
+      </svg>
+    </div>
+
+    <span class="placeholder-note" data-i18n="note">This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.</span>
+
+    <div class="case-body" style="margin-top:40px;">
+
+      <div class="case-section">
+        <h2 data-i18n="challenge.h">The challenge</h2>
+        <p data-i18n="challenge.p">A retail chain (or bank branch network) needs a way to compare performance across regions — Casablanca, Rabat, Marrakech, Tangier — but the raw transactional data lives in flat exports with no shared structure, making it hard to answer a simple question: which region is underperforming, and why?</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="approach.h">The approach</h2>
+        <ul>
+          <li data-i18n="approach.1">Designed a star schema in SQL (fact_sales, dim_branch, dim_product, dim_date) to model the transactional data.</li>
+          <li data-i18n="approach.2">Loaded and validated the data, checking for consistency across branches and time periods.</li>
+          <li data-i18n="approach.3">Connected the model to Power BI and wrote DAX measures for YoY growth and regional performance.</li>
+          <li data-i18n="approach.4">Built a branch-manager-facing dashboard with drill-through, so a manager can go from network view down to a single branch.</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="result.h">The result</h2>
+        <p data-i18n="result.p">The dashboard surfaces regional and branch-level performance at a glance, with YoY growth built into every view instead of being recalculated by hand each month.</p>
+        <ul style="margin-top:14px;">
+          <li data-i18n="result.item.1">Star schema with 4 dimension tables</li>
+          <li data-i18n="result.item.2">DAX-driven YoY growth on every branch view</li>
+          <li data-i18n="result.item.3">Drill-through from network view to single-branch level</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="reflect.h">What I'd do differently</h2>
+        <p data-i18n="reflect.p">This was my first time designing a star schema from scratch rather than working from one that already existed. Getting the grain of fact_sales right — one row per transaction line, not per order — took a couple of false starts before the DAX measures started behaving the way I expected.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="stack.h">Tools &amp; stack</h2>
+        <div class="stack-tags"><span>SQL</span><span>Power BI</span><span>DAX</span></div>
+      </div>
+
+      <!-- GitHub link: add the real repo URL below once this project has a public repo -->
+      <div class="github-cta">
+        <div>
+          <h3 data-i18n="github.h">View the code</h3>
+          <p data-i18n="github.p">The full implementation, including data prep and modeling code, is available on GitHub.</p>
+        </div>
+        <a class="github-btn" href="#" target="_blank" rel="noopener" data-i18n="github.btn">View on GitHub &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="case-next">
+      <a href="automated-ingestion-pipeline.html" data-i18n="nav.prev">&larr; previous project</a>
+      <a href="../index.html#work" data-i18n="nav.allwork">all projects</a>
+      <a href="telecom-churn-analysis.html" data-i18n="nav.next">next project &rarr;</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ismail Tazi</span>
+    <a href="../index.html#contact" data-i18n="footer.contact">Get in touch</a>
+  </div>
+</footer>
+
+<script>
+  window.CASE_TITLES = { en: "Retail sales performance dashboard — Ismail Tazi", fr: "Tableau de bord de performance des ventes retail — Ismail Tazi" };
+  window.CASE_TRANSLATIONS = {
+    en: {
+      "nav.back": "&larr; all projects",
+      "meta.field.label": "Field",
+      "meta.role.label": "My role",
+      "meta.role.val": "Data Analyst (Work-Study)",
+      "meta.tools.label": "Core tools",
+      "note": "This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.",
+      "challenge.h": "The challenge",
+      "approach.h": "The approach",
+      "result.h": "The result",
+      "reflect.h": "What I'd do differently",
+      "stack.h": "Tools &amp; stack",
+      "github.h": "View the code",
+      "github.p": "The full implementation, including data prep and modeling code, is available on GitHub.",
+      "github.btn": "View on GitHub &rarr;",
+      "nav.prev": "&larr; previous project",
+      "nav.allwork": "all projects",
+      "nav.next": "next project &rarr;",
+      "footer.contact": "Get in touch",
+      "cat": "Data Analyst",
+      "title": "Retail sales performance dashboard",
+      "metric": "Branch-level YoY variance across 4 regions",
+      "challenge.p": "A retail chain (or bank branch network) needs a way to compare performance across regions — Casablanca, Rabat, Marrakech, Tangier — but the raw transactional data lives in flat exports with no shared structure, making it hard to answer a simple question: which region is underperforming, and why?",
+      "result.p": "The dashboard surfaces regional and branch-level performance at a glance, with YoY growth built into every view instead of being recalculated by hand each month.",
+      "reflect.p": "This was my first time designing a star schema from scratch rather than working from one that already existed. Getting the grain of fact_sales right — one row per transaction line, not per order — took a couple of false starts before the DAX measures started behaving the way I expected.",
+      "approach.1": "Designed a star schema in SQL (fact_sales, dim_branch, dim_product, dim_date) to model the transactional data.",
+      "approach.2": "Loaded and validated the data, checking for consistency across branches and time periods.",
+      "approach.3": "Connected the model to Power BI and wrote DAX measures for YoY growth and regional performance.",
+      "approach.4": "Built a branch-manager-facing dashboard with drill-through, so a manager can go from network view down to a single branch.",
+      "result.item.1": "Star schema with 4 dimension tables",
+      "result.item.2": "DAX-driven YoY growth on every branch view",
+      "result.item.3": "Drill-through from network view to single-branch level",
+    },
+    fr: {
+      "nav.back": "&larr; tous les projets",
+      "meta.field.label": "Domaine",
+      "meta.role.label": "Mon rôle",
+      "meta.role.val": "Data Analyst (Alternance)",
+      "meta.tools.label": "Outils principaux",
+      "note": "Cette étude de cas est un modèle provisoire construit autour d'un scénario métier simulé — remplacez les détails ci-dessous par vos vraies données, chiffres et captures d'écran au fur et à mesure.",
+      "challenge.h": "Le défi",
+      "approach.h": "L'approche",
+      "result.h": "Le résultat",
+      "reflect.h": "Ce que je ferais différemment",
+      "stack.h": "Outils &amp; stack",
+      "github.h": "Voir le code",
+      "github.p": "L'implémentation complète, incluant la préparation des données et le code de modélisation, est disponible sur GitHub.",
+      "github.btn": "Voir sur GitHub &rarr;",
+      "nav.prev": "&larr; projet précédent",
+      "nav.allwork": "tous les projets",
+      "nav.next": "projet suivant &rarr;",
+      "footer.contact": "Me contacter",
+      "cat": "Analyste de données",
+      "title": "Tableau de bord de performance des ventes retail",
+      "metric": "Écarts de croissance par succursale sur 4 régions",
+      "challenge.p": "Une chaîne de magasins (ou un réseau d'agences bancaires) a besoin de comparer ses performances par région — Casablanca, Rabat, Marrakech, Tanger — mais les données transactionnelles brutes existent sous forme d'exports plats sans structure commune, rendant difficile de répondre à une question simple : quelle région sous-performe, et pourquoi ?",
+      "result.p": "Le tableau de bord fait apparaître la performance régionale et par succursale en un coup d'œil, avec une croissance annuelle intégrée à chaque vue plutôt que recalculée manuellement chaque mois.",
+      "reflect.p": "C'était la première fois que je concevais un schéma en étoile depuis zéro plutôt que de travailler à partir d'un schéma déjà existant. Trouver le bon grain pour fact_sales — une ligne par ligne de transaction, pas par commande — a demandé quelques essais avant que les mesures DAX ne se comportent comme prévu.",
+      "approach.1": "Conçu un schéma en étoile sous SQL (fact_sales, dim_branch, dim_product, dim_date) pour modéliser les données transactionnelles.",
+      "approach.2": "Chargé et validé les données, en vérifiant la cohérence entre succursales et périodes.",
+      "approach.3": "Connecté le modèle à Power BI et écrit des mesures DAX pour la croissance annuelle et la performance régionale.",
+      "approach.4": "Construit un tableau de bord destiné aux responsables de succursale avec exploration en détail, permettant de passer d'une vue réseau à une succursale unique.",
+      "result.item.1": "Schéma en étoile avec 4 tables de dimension",
+      "result.item.2": "Croissance annuelle pilotée par DAX sur chaque vue succursale",
+      "result.item.3": "Exploration en détail, de la vue réseau jusqu'à une succursale unique",
+    }
+  };
+</script>
+<script src="../assets/case-study.js"></script>
+
+</body>
+</html>

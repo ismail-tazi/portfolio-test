@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ismail Tazi — Data Analyst (Work-Study)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#023047;
+    --navy-soft:#4d6273;
+    --navy-05: rgba(2,48,71,0.08);
+    --navy-10: rgba(2,48,71,0.14);
+    --red:#C1121F;
+    --red-dim:#a10f1a;
+    --cream:#FDF0D5;
+    --cream-dim:#f2e1bd;
+    --cream-line: rgba(2,48,71,0.16);
+    --paper:#fffaf0;
+    --radius: 3px;
+    --max-w: 1180px;
+    --ease: cubic-bezier(.2,.7,.2,1);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--navy);
+    font-family:'Inter', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3{
+    font-family:'Space Grotesk', sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  ::selection{ background:var(--navy); color:var(--cream); }
+
+  :focus-visible{
+    outline:2px solid var(--red);
+    outline-offset:3px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(253,240,213,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid var(--cream-line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    height:64px;
+  }
+  .logo{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:0.02em;
+  }
+  .logo span{ color:var(--red); }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    margin:0 24px 0 auto;
+    padding:0;
+  }
+  .nav-links a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--navy-soft);
+    position:relative;
+    padding-bottom:4px;
+    transition:color .15s var(--ease);
+  }
+  .nav-links a:hover{ color:var(--navy); }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; right:100%; bottom:0;
+    height:2px;
+    background:var(--red);
+    transition:right .2s var(--ease);
+  }
+  .nav-links a:hover::after{ right:0; }
+  .nav-toggle{ display:none; }
+
+  .lang-toggle{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    background:transparent;
+    color:var(--navy);
+    border:1px solid var(--navy-10);
+    border-radius:var(--radius);
+    padding:7px 12px;
+    cursor:pointer;
+    transition:border-color .15s var(--ease), color .15s var(--ease);
+  }
+  .lang-toggle:hover{ border-color:var(--red); color:var(--red); }
+
+  /* ---------- EYEBROW / TABLE LABEL PATTERN ---------- */
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--red);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--red);
+  }
+
+  section{ padding:110px 0; }
+  @media (max-width:720px){ section{ padding:72px 0; } }
+  #about{ padding-top:44px; }
+  @media (max-width:720px){ #about{ padding-top:28px; } }
+  #work{ padding-bottom:150px; }
+  @media (max-width:720px){ #work{ padding-bottom:100px; } }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding-top:56px;
+    padding-bottom:8px;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 4.6vw, 3.6rem);
+    line-height:1.06;
+    font-weight:600;
+    max-width:18ch;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--red);
+  }
+
+  .btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    padding:14px 24px;
+    border-radius:var(--radius);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:transform .15s var(--ease), background .15s var(--ease), border-color .15s var(--ease);
+  }
+  .btn-primary{ background:var(--red); color:var(--cream); }
+  .btn-primary:hover{ background:var(--red-dim); transform:translateY(-1px); }
+  .btn-ghost{ background:transparent; color:var(--navy); border-color:var(--navy-10); }
+  .btn-ghost:hover{ border-color:var(--navy); transform:translateY(-1px); }
+
+  /* record card */
+  .record{
+    background:var(--navy);
+    color:var(--cream);
+    border-radius:6px;
+    padding:28px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:13.5px;
+    box-shadow: 0 24px 48px -20px rgba(2,48,71,0.45);
+  }
+  .record-top{
+    display:flex;
+    justify-content:space-between;
+    color: rgba(253,240,213,0.55);
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:18px;
+    padding-bottom:14px;
+    border-bottom:1px solid rgba(253,240,213,0.15);
+  }
+  .record-row{
+    display:flex;
+    gap:14px;
+    padding:9px 0;
+    border-bottom:1px dashed rgba(253,240,213,0.12);
+  }
+  .record-row:last-child{ border-bottom:none; }
+  .record-key{ color:rgba(253,240,213,0.5); min-width:104px; flex-shrink:0; }
+  .record-val{ color:var(--cream); }
+  .record-val.accent{ color:#ff8b91; }
+  .cursor{
+    display:inline-block;
+    width:8px; height:15px;
+    background:var(--red);
+    margin-left:4px;
+    animation: blink 1.1s steps(1) infinite;
+    vertical-align:-3px;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1fr 300px;
+    gap:48px;
+    align-items:start;
+  }
+  .about-text h2{ font-size:1.9rem; margin-bottom:16px; }
+  .about-text p{ color:var(--navy-soft); max-width:62ch; }
+  .about-text p + p{ margin-top:14px; }
+
+  .about-card{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .profile-photo{
+    width:100%;
+    max-width:220px;
+    aspect-ratio:4/5;
+    border-radius:6px;
+    background:var(--navy);
+    border:1px dashed rgba(253,240,213,0.35);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    position:relative;
+  }
+  .profile-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .profile-photo .profile-placeholder{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    color:var(--cream);
+  }
+  .profile-photo .profile-initials{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:2.6rem;
+    font-weight:600;
+    opacity:0.9;
+  }
+  .profile-photo .profile-hint{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:rgba(253,240,213,0.5);
+  }
+  .profile-photo::after{
+    content:"";
+    position:absolute;
+    bottom:0; right:0;
+    width:14px; height:14px;
+    background:var(--red);
+  }
+  .profile-photo--hero{
+    width:100%;
+    max-width:none;
+    aspect-ratio:16/9;
+  }
+  .profile-photo--hero .profile-initials{ font-size:1.8rem; }
+  .profile-photo--hero .profile-hint{ font-size:9.5px; }
+
+  .stat-strip{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--cream-line);
+    border:1px solid var(--cream-line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    margin-top:24px;
+  }
+  .stat{
+    background:var(--paper);
+    padding:18px 16px;
+  }
+  .stat .num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:1.6rem;
+    font-weight:600;
+    color:var(--navy);
+  }
+  .stat .num span{ color:var(--red); }
+  .stat .label{
+    margin-top:4px;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--navy-soft);
+  }
+
+  @media (max-width:900px){
+    .about-grid{ grid-template-columns:1fr; gap:28px; }
+    .about-card{ max-width:320px; }
+    .stat-strip{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-scale-note{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--navy-soft);
+    margin:-16px 0 22px;
+  }
+  .skills-columns{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+  .skill-category{
+    background:var(--paper);
+    padding:18px 18px 6px;
+    border:1px solid var(--cream-line);
+    border-radius:8px;
+    box-shadow:0 12px 28px -22px rgba(2,48,71,0.35);
+  }
+  .skill-category-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--cream);
+    background:var(--navy);
+    padding:5px 10px;
+    border-radius:20px;
+    margin-bottom:10px;
+    display:inline-block;
+  }
+  .skill-row{
+    padding:9px 0;
+    border-top:1px solid var(--cream-line);
+  }
+  .skill-category .skill-row:first-of-type{ border-top:none; }
+  .skill-row-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:10px;
+  }
+  .skill-name{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:13px;
+    font-weight:600;
+    color:var(--navy);
+  }
+  .skill-sub{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9.5px;
+    color:var(--navy-soft);
+    line-height:1.45;
+    margin-top:3px;
+  }
+  .skill-meter{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-top:6px;
+  }
+  .skill-level{ display:flex; gap:2px; }
+  .skill-level span{
+    width:12px; height:5px;
+    background:var(--navy-10);
+    border-radius:1px;
+  }
+  .skill-level span.filled{ background:var(--red); }
+  .skill-level-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--navy-soft);
+    white-space:nowrap;
+  }
+  @media (max-width:900px){ .skills-columns{ grid-template-columns:1fr; } }
+
+  .soft-skills-card{
+    margin-top:16px;
+    background:var(--paper);
+    padding:18px 20px;
+    border:1px solid var(--cream-line);
+    border-radius:8px;
+    box-shadow:0 12px 28px -22px rgba(2,48,71,0.35);
+  }
+  .soft-skills-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:4px;
+  }
+  .soft-tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    padding:6px 13px;
+    border:1px solid var(--navy-10);
+    border-radius:20px;
+    color:var(--navy);
+    background:var(--cream);
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .filter-bar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:28px 0 40px;
+  }
+  .filter-btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:0.04em;
+    padding:9px 16px;
+    border-radius:var(--radius);
+    border:1px solid var(--navy-10);
+    background:transparent;
+    color:var(--navy-soft);
+    cursor:pointer;
+    transition:background .15s var(--ease), color .15s var(--ease), border-color .15s var(--ease);
+  }
+  .filter-btn:hover{ border-color:var(--navy); color:var(--navy); }
+  .filter-btn.active{
+    background:var(--navy);
+    border-color:var(--navy);
+    color:var(--cream);
+  }
+
+  .skill-filter-row{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin:-16px 0 36px;
+  }
+  .skill-filter-label{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--navy-soft);
+  }
+  .skill-filters{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+  }
+  .skill-btn{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    padding:6px 12px;
+    border-radius:20px;
+    border:1px solid var(--navy-10);
+    background:transparent;
+    color:var(--navy-soft);
+    cursor:pointer;
+    transition:background .15s var(--ease), color .15s var(--ease), border-color .15s var(--ease);
+  }
+  .skill-btn:hover{ border-color:var(--red); color:var(--red); }
+  .skill-btn.active{
+    background:var(--red);
+    border-color:var(--red);
+    color:var(--cream);
+  }
+
+  .projects-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:28px;
+  }
+  @media (max-width:820px){ .projects-grid{ grid-template-columns:1fr; } }
+
+  .project-card{
+    background:var(--paper);
+    border:1px solid var(--cream-line);
+    border-radius:6px;
+    overflow:hidden;
+    transition:transform .2s var(--ease), box-shadow .2s var(--ease), opacity .25s var(--ease);
+  }
+  .project-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 20px 36px -22px rgba(2,48,71,0.35);
+  }
+  .project-card.filtered-out{
+    display:none;
+  }
+
+  .project-visual{
+    height:168px;
+    background:var(--navy);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .project-visual svg{ width:100%; height:100%; }
+
+  .project-body{ padding:26px 28px 28px; }
+  .project-index{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:var(--navy-soft);
+  }
+  .project-tag-cat{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    color:var(--red);
+    margin:10px 0 10px;
+  }
+  .project-card h3{ font-size:1.2rem; margin-bottom:8px; }
+  .project-card p{ color:var(--navy-soft); margin:0 0 14px; }
+  .project-card .metric{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px;
+    color:var(--red);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .case-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px; }
+  .case-tags span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--navy-soft);
+    border:1px solid var(--navy-10);
+    padding:4px 9px;
+    border-radius:var(--radius);
+  }
+  .case-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:var(--navy);
+    border-bottom:1px solid var(--navy-10);
+    padding-bottom:2px;
+    transition:border-color .15s;
+  }
+  .case-link:hover{ border-color:var(--red); color:var(--red); }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    background:var(--navy);
+    color:rgba(253,240,213,0.7);
+    padding:70px 0 40px;
+  }
+  footer .wrap{ }
+  .footer-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:40px;
+    flex-wrap:wrap;
+    padding-bottom:40px;
+    border-bottom:1px solid rgba(253,240,213,0.15);
+  }
+  footer h2{
+    color:var(--cream);
+    font-size:1.9rem;
+    max-width:14ch;
+  }
+  .footer-links{
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+  }
+  .footer-col h4{
+    font-family:'JetBrains Mono', monospace;
+    text-transform:uppercase;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    color:rgba(253,240,213,0.45);
+    margin:0 0 12px;
+  }
+  .footer-col a{
+    display:block;
+    font-size:14px;
+    color:var(--cream);
+    padding:5px 0;
+    transition:color .15s;
+  }
+  .footer-col a:hover{ color:var(--red); }
+  .footer-bottom{
+    display:flex;
+    justify-content:space-between;
+    padding-top:24px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:rgba(253,240,213,0.45);
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .6s var(--ease), transform .6s var(--ease);
+  }
+  .reveal.in{ opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">Ismail <span>T.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about" data-i18n="nav.about">about</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">skills</a></li>
+      <li><a href="#work" data-i18n="nav.work">work</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">contact</a></li>
+    </ul>
+    <button class="lang-toggle mono" id="langToggle" aria-label="Switch language">FR</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero wrap" id="hero">
+    <h1 data-i18n="hero.title">Turning messy data<br>into <em>decisions</em> people trust.</h1>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="wrap">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 data-i18n="about.title">About</h2>
+        <p data-i18n="about.p1">I spend most days in that space between raw tables and real decisions — cleaning messy datasets, building models, and shipping dashboards that people actually open on a Monday morning. I care as much about a well-indexed query as I do about a well-calibrated model.</p>
+        <p data-i18n="about.p2">Before moving fully into data, I worked adjacent to the business teams I now support — which is probably why I default to asking "what decision does this change?" before I open a notebook.</p>
+
+        <div class="stat-strip">
+          <div class="stat"><div class="num">1</div><div class="label" data-i18n="about.stat1">year in data</div></div>
+          <div class="stat"><div class="num">6</div><div class="label" data-i18n="about.stat2">projects completed</div></div>
+          <div class="stat"><div class="num">3</div><div class="label" data-i18n="about.stat3">teams collaborated with</div></div>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="profile-photo profile-photo--hero">
+          <!-- Replace this placeholder with: <img src="profile.jpg" alt="Ismail Tazi"> -->
+          <div class="profile-placeholder">
+            <span class="profile-initials">IT</span>
+            <span class="profile-hint" data-i18n="about.photoHint">add photo</span>
+          </div>
+        </div>
+
+        <div class="record" aria-hidden="true">
+          <div class="record-top"><span>Profile</span><span data-i18n="record.status">status: active</span></div>
+          <div class="record-row"><span class="record-key">name</span><span class="record-val">Ismail Tazi</span></div>
+          <div class="record-row"><span class="record-key">role</span><span class="record-val" data-i18n="record.role">Data Analyst (Work-Study)</span></div>
+          <div class="record-row"><span class="record-key">based_in</span><span class="record-val">Casablanca, MA</span></div>
+          <div class="record-row"><span class="record-key">stack</span><span class="record-val">Python · SQL · Excel</span></div>
+          <div class="record-row"><span class="record-key">focus</span><span class="record-val accent" data-i18n="record.focus">data analysis</span></div>
+          <div class="record-row"><span class="record-key">available</span><span class="record-val" data-i18n="record.available">Q3 2026<span class="cursor"></span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="wrap">
+    <h2 style="font-size:1.9rem; margin-bottom:8px;" data-i18n="skills.title">Tools of the trade</h2>
+    <p class="skills-scale-note" data-i18n="skills.scaleNote">Self-assessed proficiency, on a 5-point scale from first exposure to advanced.</p>
+
+    <div class="skills-columns">
+
+      <!-- Data Engineering -->
+      <div class="skill-category">
+        <span class="skill-category-label" data-i18n="filter.engineering">Data Engineering</span>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.databases">Databases</span></div>
+          <div class="skill-sub">PostgreSQL · Oracle</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="3"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.3">Working knowledge</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.datastructures">Data structures</span></div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="3"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.3">Working knowledge</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.systemdesign">System design</span></div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="2"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.2">Familiar</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.cloud">Cloud computing</span></div>
+          <div class="skill-sub">Azure · AWS</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="2"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.2">Familiar</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.warehousing">Data warehousing</span></div>
+          <div class="skill-sub">BigQuery · Snowflake · Databricks</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="2"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.2">Familiar</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.ingestion">Data ingestion</span></div>
+          <div class="skill-sub">dlt</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="2"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.2">Familiar</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.bigdata">Big data &amp; DevOps</span></div>
+          <div class="skill-sub">Spark · Hadoop · containers &amp; orchestration · CI/CD · monitoring · testing</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="2"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.2">Familiar</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Analyst -->
+      <div class="skill-category">
+        <span class="skill-category-label" data-i18n="filter.analyst">Data Analyst</span>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name">Python</span></div>
+          <div class="skill-sub">Pandas · NumPy · SciPy · ipython-sql · BeautifulSoup · requests · StringIO · yfinance · matplotlib · seaborn</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="4"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.4">Proficient</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name">SQL</span></div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="4"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.4">Proficient</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.webscraping">Web scraping</span></div>
+          <div class="skill-sub">BeautifulSoup</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="3"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.3">Working knowledge</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.dataarch">Data architecture for BI</span></div>
+          <div class="skill-sub" data-i18n="skill.dataarch.sub">Data modeling · de/normalization · fact &amp; dimension tables · star &amp; snowflake schema · calculated fields &amp; measures</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="3"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.3">Working knowledge</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.storytelling">Storytelling framework</span></div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="4"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.4">Proficient</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.bizapps">Business applications</span></div>
+          <div class="skill-sub" data-i18n="skill.bizapps.sub">Finance · e-commerce · healthcare · manufacturing</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="3"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.3">Working knowledge</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Scientist -->
+      <div class="skill-category">
+        <span class="skill-category-label" data-i18n="filter.scientist">Data Scientist</span>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.mathstats">Mathematics &amp; statistics</span></div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="3"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.3">Working knowledge</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name">AI &amp; ML</span></div>
+          <div class="skill-sub" data-i18n="skill.aiml.sub">Supervised · unsupervised · reinforcement learning · scikit-learn · statsmodels</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="2"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.2">Familiar</span>
+          </div>
+        </div>
+
+        <div class="skill-row">
+          <div class="skill-row-top"><span class="skill-name" data-i18n="skill.deeplearning">Deep learning</span></div>
+          <div class="skill-sub">PyTorch · TensorFlow</div>
+          <div class="skill-meter">
+            <div class="skill-level" data-level="2"><span></span><span></span><span></span><span></span><span></span></div>
+            <span class="skill-level-label" data-i18n="level.2">Familiar</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="soft-skills-card">
+      <span class="skill-category-label" data-i18n="skill.soft">Soft skills</span>
+      <div class="soft-skills-tags">
+        <span class="soft-tag" data-i18n="skill.soft.acumen">Business acumen</span>
+        <span class="soft-tag" data-i18n="skill.soft.critical">Critical thinking</span>
+        <span class="soft-tag" data-i18n="skill.soft.pm">Project management</span>
+        <span class="soft-tag" data-i18n="skill.soft.change">Change management</span>
+        <span class="soft-tag" data-i18n="skill.soft.stakeholder">Stakeholder management</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="work" class="wrap">
+    <h2 style="font-size:1.9rem; margin-bottom:8px;" data-i18n="projects.title">Selected work</h2>
+    <p style="color:var(--navy-soft); max-width:60ch; margin-bottom:12px;" data-i18n="projects.intro">A mix of work-study projects and personal deep-dives across data analysis, engineering, and machine learning.</p>
+
+    <div class="filter-bar" role="tablist" aria-label="Filter projects by field">
+      <button class="filter-btn active" data-filter="all" data-i18n="filter.all">All</button>
+      <button class="filter-btn" data-filter="engineering" data-i18n="filter.engineering">Data Engineering</button>
+      <button class="filter-btn" data-filter="analyst" data-i18n="filter.analyst">Data Analyst</button>
+      <button class="filter-btn" data-filter="scientist" data-i18n="filter.scientist">Data Scientist</button>
+    </div>
+
+    <div class="skill-filter-row">
+      <span class="skill-filter-label" data-i18n="skillfilter.label">Filter by skill:</span>
+      <div class="skill-filters" role="tablist" aria-label="Filter projects by skill">
+        <button class="skill-btn active" data-skill="all" data-i18n="filter.all">All</button>
+        <button class="skill-btn" data-skill="sql">SQL</button>
+        <button class="skill-btn" data-skill="python">Python</button>
+        <button class="skill-btn" data-skill="excel">Excel</button>
+        <button class="skill-btn" data-skill="power-bi">Power BI</button>
+        <button class="skill-btn" data-skill="dax">DAX</button>
+        <button class="skill-btn" data-skill="dbt">dbt</button>
+        <button class="skill-btn" data-skill="airflow">Airflow</button>
+        <button class="skill-btn" data-skill="snowflake">Snowflake</button>
+        <button class="skill-btn" data-skill="bigquery">BigQuery</button>
+        <button class="skill-btn" data-skill="scikit-learn">scikit-learn</button>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- Data Engineering -->
+      <article class="project-card" data-category="engineering" data-skills="dbt,snowflake,sql">
+        <div class="project-visual" aria-hidden="true">
+          <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <rect x="24" y="74" width="46" height="30" rx="3" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.85"/>
+            <rect x="97" y="74" width="46" height="30" rx="3" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.85"/>
+            <rect x="170" y="74" width="46" height="30" rx="3" fill="#C1121F" opacity="0.9"/>
+            <path d="M70 89 H97" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <path d="M143 89 H170" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="47" cy="89" r="2" fill="#FDF0D5"/>
+            <circle cx="120" cy="89" r="2" fill="#FDF0D5"/>
+            <text x="47" y="122" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.55">staging</text>
+            <text x="120" y="122" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.55">intermediate</text>
+            <text x="193" y="122" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.85">marts</text>
+          </svg>
+        </div>
+        <div class="project-body">
+          <span class="project-index">01</span>
+          <div class="project-tag-cat" data-i18n="filter.engineering">Data Engineering</div>
+          <h3 data-i18n="case1.title">dbt + Snowflake analytics pipeline</h3>
+          <div class="metric" data-i18n="case1.metric">Raw → staging → marts, fully tested</div>
+          <p data-i18n="case1.desc">Built a layered dbt project (staging → intermediate → marts) on top of Snowflake, with automated tests and generated documentation for every model.</p>
+          <div class="case-tags"><span>dbt</span><span>Snowflake</span><span>SQL</span></div>
+        </div>
+        <a class="case-link" href="projects/dbt-snowflake-pipeline.html" data-i18n="case.link" style="display:block; padding:0 28px 24px;">Read case study →</a>
+      </article>
+
+      <article class="project-card" data-category="engineering" data-skills="python,airflow,snowflake">
+        <div class="project-visual" aria-hidden="true">
+          <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="45" cy="90" r="16" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.8"/>
+            <text x="45" y="94" font-family="JetBrains Mono, monospace" font-size="8" fill="#FDF0D5" text-anchor="middle" opacity="0.75">API</text>
+            <path d="M62 90 H100" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <path d="M92 84 L100 90 L92 96" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <rect x="100" y="70" width="46" height="40" rx="3" fill="#C1121F" opacity="0.9"/>
+            <text x="123" y="93" font-family="JetBrains Mono, monospace" font-size="8" fill="#FDF0D5" text-anchor="middle" opacity="0.9">Airflow</text>
+            <path d="M146 90 H184" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <path d="M176 84 L184 90 L176 96" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <rect x="184" y="74" width="32" height="32" rx="3" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.85"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <span class="project-index">02</span>
+          <div class="project-tag-cat" data-i18n="filter.engineering">Data Engineering</div>
+          <h3 data-i18n="case2.title">Automated ingestion pipeline</h3>
+          <div class="metric" data-i18n="case2.metric">Daily automated ingestion, zero manual pulls</div>
+          <p data-i18n="case2.desc">Built a scheduled pipeline that pulls data from an external API and loads it into a cloud warehouse automatically, with logging and error handling.</p>
+          <div class="case-tags"><span>Python</span><span>Airflow</span><span>Snowflake</span></div>
+        </div>
+        <a class="case-link" href="projects/automated-ingestion-pipeline.html" data-i18n="case.link" style="display:block; padding:0 28px 24px;">Read case study →</a>
+      </article>
+
+      <!-- Data Analyst -->
+      <article class="project-card" data-category="analyst" data-skills="sql,power-bi,dax">
+        <div class="project-visual" aria-hidden="true">
+          <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="98" width="18" height="40" fill="#FDF0D5" opacity="0.55"/>
+            <rect x="58" y="80" width="18" height="58" fill="#FDF0D5" opacity="0.7"/>
+            <rect x="86" y="60" width="18" height="78" fill="#C1121F"/>
+            <rect x="114" y="90" width="18" height="48" fill="#FDF0D5" opacity="0.55"/>
+            <rect x="142" y="70" width="18" height="68" fill="#FDF0D5" opacity="0.7"/>
+            <line x1="24" y1="144" x2="205" y2="144" stroke="#FDF0D5" stroke-width="1" opacity="0.3"/>
+            <path d="M178 52 L190 62 L204 38" stroke="#C1121F" stroke-width="2" fill="none" opacity="0.9"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <span class="project-index">03</span>
+          <div class="project-tag-cat" data-i18n="filter.analyst">Data Analyst</div>
+          <h3 data-i18n="case3.title">Retail sales performance dashboard</h3>
+          <div class="metric" data-i18n="case3.metric">Branch-level YoY variance across 4 regions</div>
+          <p data-i18n="case3.desc">Built a star-schema sales model in SQL and a branch-manager-facing Power BI dashboard to surface regional performance and YoY growth across a simulated retail network.</p>
+          <div class="case-tags"><span>SQL</span><span>Power BI</span><span>DAX</span></div>
+        </div>
+        <a class="case-link" href="projects/retail-banking-sales-dashboard.html" data-i18n="case.link" style="display:block; padding:0 28px 24px;">Read case study →</a>
+      </article>
+
+      <article class="project-card" data-category="analyst" data-skills="sql,excel,power-bi">
+        <div class="project-visual" aria-hidden="true">
+          <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <line x1="24" y1="30" x2="24" y2="140" stroke="#FDF0D5" stroke-width="1" opacity="0.25"/>
+            <line x1="24" y1="140" x2="216" y2="140" stroke="#FDF0D5" stroke-width="1" opacity="0.25"/>
+            <circle cx="50" cy="110" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="75" cy="95" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="95" cy="105" r="3.5" fill="#FDF0D5" opacity="0.55"/>
+            <circle cx="115" cy="80" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="140" cy="70" r="3.5" fill="#FDF0D5" opacity="0.6"/>
+            <circle cx="160" cy="55" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="185" cy="45" r="3.5" fill="#FDF0D5" opacity="0.6"/>
+            <path d="M40 125 C 90 105, 150 60, 200 35" stroke="#C1121F" stroke-width="2.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <span class="project-index">04</span>
+          <div class="project-tag-cat" data-i18n="filter.analyst">Data Analyst</div>
+          <h3 data-i18n="case4.title">Telecom customer churn analysis</h3>
+          <div class="metric" data-i18n="case4.metric">Churn concentrated in month-to-month contracts</div>
+          <p data-i18n="case4.desc">Analyzed churn drivers for a simulated Moroccan telecom operator — contract type, tenure, and payment method — then built a cohort retention view and an executive summary.</p>
+          <div class="case-tags"><span>SQL</span><span>Excel</span><span>Power BI</span></div>
+        </div>
+        <a class="case-link" href="projects/telecom-churn-analysis.html" data-i18n="case.link" style="display:block; padding:0 28px 24px;">Read case study →</a>
+      </article>
+
+      <article class="project-card" data-category="analyst" data-skills="sql,python,power-bi">
+        <div class="project-visual" aria-hidden="true">
+          <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 40 H190 L150 90 H90 Z" fill="none" stroke="#FDF0D5" stroke-width="1.5" opacity="0.8"/>
+            <path d="M90 90 H150 L130 130 H110 Z" fill="#C1121F" opacity="0.9"/>
+            <text x="120" y="30" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.6">visits</text>
+            <text x="120" y="108" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.6">cart</text>
+            <text x="120" y="148" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.9">purchase</text>
+          </svg>
+        </div>
+        <div class="project-body">
+          <span class="project-index">05</span>
+          <div class="project-tag-cat" data-i18n="filter.analyst">Data Analyst</div>
+          <h3 data-i18n="case5.title">E-commerce funnel &amp; cohort report</h3>
+          <div class="metric" data-i18n="case5.metric">Cart-to-purchase drop-off mapped end to end</div>
+          <p data-i18n="case5.desc">Modeled a marketplace-style funnel (visits → cart → purchase) in Python and SQL, calculated cohort retention and month-1 LTV, and presented the findings in Power BI.</p>
+          <div class="case-tags"><span>SQL</span><span>Python</span><span>Power BI</span></div>
+        </div>
+        <a class="case-link" href="projects/ecommerce-funnel-cohort-report.html" data-i18n="case.link" style="display:block; padding:0 28px 24px;">Read case study →</a>
+      </article>
+
+      <article class="project-card" data-category="analyst" data-skills="excel,power-bi,dax">
+        <div class="project-visual" aria-hidden="true">
+          <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <rect x="24" y="60" width="26" height="70" fill="#FDF0D5" opacity="0.7"/>
+            <rect x="60" y="40" width="26" height="30" fill="#C1121F" opacity="0.9"/>
+            <rect x="96" y="70" width="26" height="20" fill="#FDF0D5" opacity="0.55"/>
+            <rect x="132" y="50" width="26" height="20" fill="#FDF0D5" opacity="0.7"/>
+            <rect x="168" y="55" width="26" height="75" fill="#FDF0D5" opacity="0.85"/>
+            <line x1="24" y1="130" x2="194" y2="130" stroke="#FDF0D5" stroke-width="1" opacity="0.3"/>
+          </svg>
+        </div>
+        <div class="project-body">
+          <span class="project-index">06</span>
+          <div class="project-tag-cat" data-i18n="filter.analyst">Data Analyst</div>
+          <h3 data-i18n="case6.title">Budget variance report</h3>
+          <div class="metric" data-i18n="case6.metric">Budget vs. actuals, tracked by department and month</div>
+          <p data-i18n="case6.desc">Built a budget-vs-actuals tracker for a simulated SME — heavy Excel modeling first, then a Power BI reporting layer with variance %, RAG status, and a waterfall view.</p>
+          <div class="case-tags"><span>Excel</span><span>Power BI</span><span>DAX</span></div>
+        </div>
+        <a class="case-link" href="projects/budget-variance-report.html" data-i18n="case.link" style="display:block; padding:0 28px 24px;">Read case study →</a>
+      </article>
+
+      <!-- Data Scientist -->
+      <article class="project-card" data-category="scientist" data-skills="python,scikit-learn">
+        <div class="project-visual" aria-hidden="true">
+          <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <line x1="24" y1="30" x2="24" y2="140" stroke="#FDF0D5" stroke-width="1" opacity="0.25"/>
+            <line x1="24" y1="140" x2="216" y2="140" stroke="#FDF0D5" stroke-width="1" opacity="0.25"/>
+            <circle cx="50" cy="120" r="3.5" fill="#FDF0D5" opacity="0.6"/>
+            <circle cx="75" cy="110" r="3.5" fill="#C1121F" opacity="0.9"/>
+            <circle cx="95" cy="95" r="3.5" fill="#FDF0D5" opacity="0.55"/>
+            <circle cx="115" cy="115" r="3.5" fill="#C1121F" opacity="0.9"/>
+            <circle cx="140" cy="80" r="3.5" fill="#FDF0D5" opacity="0.6"/>
+            <circle cx="160" cy="100" r="3.5" fill="#C1121F" opacity="0.9"/>
+            <circle cx="185" cy="65" r="3.5" fill="#FDF0D5" opacity="0.6"/>
+            <path d="M24 100 H216" stroke="#FDF0D5" stroke-width="1" stroke-dasharray="3 3" opacity="0.35"/>
+            <text x="120" y="155" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.6">risk score</text>
+          </svg>
+        </div>
+        <div class="project-body">
+          <span class="project-index">07</span>
+          <div class="project-tag-cat" data-i18n="filter.scientist">Data Scientist</div>
+          <h3 data-i18n="case7.title">Customer churn prediction model</h3>
+          <div class="metric" data-i18n="case7.metric">Predicts churn risk from usage patterns</div>
+          <p data-i18n="case7.desc">Extended the telecom churn analysis into a predictive model — logistic regression and random forest, compared on precision/recall, with feature importance explained in business terms.</p>
+          <div class="case-tags"><span>Python</span><span>scikit-learn</span><span>Pandas</span></div>
+        </div>
+        <a class="case-link" href="projects/churn-prediction-model.html" data-i18n="case.link" style="display:block; padding:0 28px 24px;">Read case study →</a>
+      </article>
+
+    </div>
+  </section>
+
+
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-top">
+      <h2 data-i18n="footer.title">Let's talk about your data.</h2>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 data-i18n="footer.contact">Contact</h4>
+          <a href="mailto:ismail.tazi@example.com">ismail.tazi@example.com</a>
+          <a href="tel:+212600000000">+212 6 00 00 00 00</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.elsewhere">Elsewhere</h4>
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="#">Kaggle</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.resume">Résumé</h4>
+          <a href="resume-en.pdf" download>English</a>
+          <a href="resume-fr.pdf" download>Français</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Ismail Tazi</span>
+      <span>Casablanca, MA</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal for case rows and stat cards
+  const targets = document.querySelectorAll('.project-card, .stat, .skill-category');
+  targets.forEach(t => t.classList.add('reveal'));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  targets.forEach(t => io.observe(t));
+
+  // ---------- skill proficiency meters ----------
+  document.querySelectorAll('.skill-level').forEach(meter => {
+    const level = parseInt(meter.dataset.level, 10) || 0;
+    const segments = meter.querySelectorAll('span');
+    segments.forEach((seg, i) => {
+      seg.classList.toggle('filled', i < level);
+    });
+  });
+
+  // ---------- project filtering ----------
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const skillButtons = document.querySelectorAll('.skill-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  let activeField = 'all';
+  let activeSkill = 'all';
+
+  function applyProjectFilters(){
+    projectCards.forEach(card => {
+      const fieldMatch = activeField === 'all' || card.dataset.category === activeField;
+      const skills = (card.dataset.skills || '').split(',');
+      const skillMatch = activeSkill === 'all' || skills.includes(activeSkill);
+      card.classList.toggle('filtered-out', !(fieldMatch && skillMatch));
+    });
+  }
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeField = btn.dataset.filter;
+      applyProjectFilters();
+    });
+  });
+
+  skillButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      skillButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeSkill = btn.dataset.skill;
+      applyProjectFilters();
+    });
+  });
+
+  // ---------- i18n ----------
+  const translations = {
+    en: {
+      "nav.about": "about", "nav.skills": "skills", "nav.work": "work",
+      "nav.contact": "contact",
+
+      "hero.title": 'Turning messy data<br>into <em>decisions</em> people trust.',
+
+      "record.status": "status: active",
+      "record.role": "Data Analyst (Work-Study)",
+      "record.focus": "data analysis",
+      "record.available": 'Q3 2026<span class="cursor"></span>',
+
+      "about.title": "About",
+      "about.photoHint": "add photo",
+      "about.p1": "I'm a data analyst currently completing a one-year work-study program (alternance) as part of my studies, splitting my time between coursework and hands-on data work — cleaning datasets, building dashboards, and helping teams make sense of their numbers.",
+      "about.p2": "I'm still early in my career, but I've used this year to build real, practical skills in SQL, Python, Excel, and Power BI — and to explore adjacent fields like data engineering and machine learning through personal projects.",
+      "about.stat1": "year in data",
+      "about.stat2": "projects completed",
+      "about.stat3": "teams collaborated with",
+
+      "skills.title": "Tools of the trade",
+      "skills.scaleNote": "Self-assessed proficiency, on a 5-point scale from first exposure to advanced.",
+
+      "level.1": "Exploring",
+      "level.2": "Familiar",
+      "level.3": "Working knowledge",
+      "level.4": "Proficient",
+      "level.5": "Advanced",
+
+      "skill.databases": "Databases",
+      "skill.datastructures": "Data structures",
+      "skill.systemdesign": "System design",
+      "skill.cloud": "Cloud computing",
+      "skill.warehousing": "Data warehousing",
+      "skill.ingestion": "Data ingestion",
+      "skill.bigdata": "Big data &amp; DevOps",
+      "skill.webscraping": "Web scraping",
+      "skill.dataarch": "Data architecture for BI",
+      "skill.dataarch.sub": "Data modeling · de/normalization · fact &amp; dimension tables · star &amp; snowflake schema · calculated fields &amp; measures",
+      "skill.storytelling": "Storytelling framework",
+      "skill.bizapps": "Business applications",
+      "skill.bizapps.sub": "Finance · e-commerce · healthcare · manufacturing",
+      "skill.soft": "Soft skills",
+      "skill.soft.acumen": "Business acumen",
+      "skill.soft.critical": "Critical thinking",
+      "skill.soft.pm": "Project management",
+      "skill.soft.change": "Change management",
+      "skill.soft.stakeholder": "Stakeholder management",
+      "skill.mathstats": "Mathematics &amp; statistics",
+      "skill.aiml.sub": "Supervised · unsupervised · reinforcement learning · scikit-learn · statsmodels",
+      "skill.deeplearning": "Deep learning",
+
+      "projects.title": "Selected work",
+      "projects.intro": "A mix of work-study projects and personal deep-dives across data analysis, engineering, and machine learning.",
+      "case.link": "Read case study →",
+
+      "filter.all": "All",
+      "filter.engineering": "Data Engineering",
+      "filter.analyst": "Data Analyst",
+      "filter.scientist": "Data Scientist",
+      "skillfilter.label": "Filter by skill:",
+
+      "case1.title": "dbt + Snowflake analytics pipeline",
+      "case1.metric": "Raw &rarr; staging &rarr; marts, fully tested",
+      "case1.desc": "Built a layered dbt project (staging &rarr; intermediate &rarr; marts) on top of Snowflake, with automated tests and generated documentation for every model.",
+
+      "case2.title": "Automated ingestion pipeline",
+      "case2.metric": "Daily automated ingestion, zero manual pulls",
+      "case2.desc": "Built a scheduled pipeline that pulls data from an external API and loads it into a cloud warehouse automatically, with logging and error handling.",
+
+      "case3.title": "Retail sales performance dashboard",
+      "case3.metric": "Branch-level YoY variance across 4 regions",
+      "case3.desc": "Built a star-schema sales model in SQL and a branch-manager-facing Power BI dashboard to surface regional performance and YoY growth across a simulated retail network.",
+
+      "case4.title": "Telecom customer churn analysis",
+      "case4.metric": "Churn concentrated in month-to-month contracts",
+      "case4.desc": "Analyzed churn drivers for a simulated Moroccan telecom operator — contract type, tenure, and payment method — then built a cohort retention view and an executive summary.",
+
+      "case5.title": "E-commerce funnel &amp; cohort report",
+      "case5.metric": "Cart-to-purchase drop-off mapped end to end",
+      "case5.desc": "Modeled a marketplace-style funnel (visits &rarr; cart &rarr; purchase) in Python and SQL, calculated cohort retention and month-1 LTV, and presented the findings in Power BI.",
+
+      "case6.title": "Budget variance report",
+      "case6.metric": "Budget vs. actuals, tracked by department and month",
+      "case6.desc": "Built a budget-vs-actuals tracker for a simulated SME — heavy Excel modeling first, then a Power BI reporting layer with variance %, RAG status, and a waterfall view.",
+
+      "case7.title": "Customer churn prediction model",
+      "case7.metric": "Predicts churn risk from usage patterns",
+      "case7.desc": "Extended the telecom churn analysis into a predictive model — logistic regression and random forest, compared on precision/recall, with feature importance explained in business terms.",
+
+      "footer.title": "Let's talk about your data.",
+      "footer.contact": "Contact",
+      "footer.elsewhere": "Elsewhere",
+      "footer.resume": "Résumé"
+    },
+    fr: {
+      "nav.about": "à propos", "nav.skills": "compétences", "nav.work": "projets",
+      "nav.contact": "contact",
+
+      "hero.title": 'Transformer des données brutes<br>en <em>décisions</em> fiables.',
+
+      "record.status": "statut : actif",
+      "record.role": "Data Analyst (Alternance)",
+      "record.focus": "analyse de données",
+      "record.available": 'T3 2026<span class="cursor"></span>',
+
+      "about.title": "À propos",
+      "about.photoHint": "ajouter une photo",
+      "about.p1": "Je suis analyste de données, actuellement en alternance dans le cadre de mes études — je partage mon temps entre les cours et un travail concret sur les données : nettoyer des jeux de données, construire des tableaux de bord, et aider les équipes à mieux comprendre leurs chiffres.",
+      "about.p2": "Je suis encore en début de carrière, mais j'ai profité de cette année pour développer de vraies compétences pratiques en SQL, Python, Excel et Power BI — et pour explorer des domaines connexes comme l'ingénierie des données et le machine learning à travers des projets personnels.",
+      "about.stat1": "an d'expérience",
+      "about.stat2": "projets réalisés",
+      "about.stat3": "équipes accompagnées",
+
+      "skills.title": "Outils du métier",
+      "skills.scaleNote": "Niveau auto-évalué, sur une échelle de 5, de la première découverte à la maîtrise avancée.",
+
+      "level.1": "Découverte",
+      "level.2": "Notions",
+      "level.3": "Bonnes bases",
+      "level.4": "Maîtrisé",
+      "level.5": "Avancé",
+
+      "skill.databases": "Bases de données",
+      "skill.datastructures": "Structures de données",
+      "skill.systemdesign": "Conception de systèmes",
+      "skill.cloud": "Cloud computing",
+      "skill.warehousing": "Entrepôts de données",
+      "skill.ingestion": "Ingestion de données",
+      "skill.bigdata": "Big data &amp; DevOps",
+      "skill.webscraping": "Web scraping",
+      "skill.dataarch": "Architecture de données pour la BI",
+      "skill.dataarch.sub": "Modélisation de données · dé/normalisation · tables de faits &amp; dimensions · schémas en étoile &amp; en flocon · champs &amp; mesures calculés",
+      "skill.storytelling": "Storytelling framework",
+      "skill.bizapps": "Applications métier",
+      "skill.bizapps.sub": "Finance · e-commerce · santé · industrie",
+      "skill.soft": "Savoir-être",
+      "skill.soft.acumen": "Sens des affaires",
+      "skill.soft.critical": "Esprit critique",
+      "skill.soft.pm": "Gestion de projet",
+      "skill.soft.change": "Conduite du changement",
+      "skill.soft.stakeholder": "Gestion des parties prenantes",
+      "skill.mathstats": "Mathématiques &amp; statistiques",
+      "skill.aiml.sub": "Apprentissage supervisé · non supervisé · par renforcement · scikit-learn · statsmodels",
+      "skill.deeplearning": "Deep learning",
+
+      "projects.title": "Travaux sélectionnés",
+      "projects.intro": "Un mélange de projets réalisés en alternance et de projets personnels, entre analyse de données, ingénierie et machine learning.",
+      "case.link": "Voir l'étude de cas →",
+
+      "filter.all": "Tous",
+      "filter.engineering": "Ingénierie des données",
+      "filter.analyst": "Analyste de données",
+      "filter.scientist": "Data Scientist",
+      "skillfilter.label": "Filtrer par compétence :",
+
+      "case1.title": "Pipeline analytique dbt + Snowflake",
+      "case1.metric": "Brut &rarr; staging &rarr; marts, entièrement testé",
+      "case1.desc": "Projet dbt en couches (staging &rarr; intermédiaire &rarr; marts) sur Snowflake, avec tests automatisés et documentation générée pour chaque modèle.",
+
+      "case2.title": "Pipeline d'ingestion automatisé",
+      "case2.metric": "Ingestion quotidienne automatisée, zéro extraction manuelle",
+      "case2.desc": "Pipeline planifié qui récupère des données depuis une API externe et les charge automatiquement dans un entrepôt cloud, avec journalisation et gestion des erreurs.",
+
+      "case3.title": "Tableau de bord de performance des ventes retail",
+      "case3.metric": "Écarts de croissance par succursale sur 4 régions",
+      "case3.desc": "Modèle de ventes en schéma en étoile sous SQL et tableau de bord Power BI destiné aux responsables de succursale, pour visualiser la performance régionale et la croissance annuelle sur un réseau retail simulé.",
+
+      "case4.title": "Analyse du churn client télécom",
+      "case4.metric": "Churn concentré sur les contrats mensuels",
+      "case4.desc": "Analyse des facteurs de churn pour un opérateur télécom marocain simulé — type de contrat, ancienneté, mode de paiement — avec une vue de rétention par cohorte et une synthèse exécutive.",
+
+      "case5.title": "Rapport de funnel et cohortes e-commerce",
+      "case5.metric": "Taux d'abandon panier-achat cartographié de bout en bout",
+      "case5.desc": "Modélisation d'un funnel de type marketplace (visites &rarr; panier &rarr; achat) en Python et SQL, calcul de la rétention par cohorte et de la LTV du mois 1, avec restitution dans Power BI.",
+
+      "case6.title": "Rapport d'écarts budgétaires",
+      "case6.metric": "Budget vs réalisé, suivi par département et par mois",
+      "case6.desc": "Suivi budget vs réalisé pour une PME simulée — modélisation Excel poussée, puis couche de reporting Power BI avec écarts en %, statut RAG et vue en cascade (waterfall).",
+
+      "case7.title": "Modèle de prédiction du churn client",
+      "case7.metric": "Prédit le risque de churn à partir des habitudes d'usage",
+      "case7.desc": "Extension de l'analyse de churn télécom vers un modèle prédictif — régression logistique et random forest, comparés sur precision/recall, avec l'importance des variables expliquée en langage métier.",
+
+      "footer.title": "Parlons de vos données.",
+      "footer.contact": "Contact",
+      "footer.elsewhere": "Ailleurs",
+      "footer.resume": "CV"
+    }
+  };
+
+  const langToggle = document.getElementById('langToggle');
+  const supported = ['en', 'fr'];
+
+  function detectDefaultLang(){
+    const nav = (navigator.language || 'en').slice(0,2).toLowerCase();
+    return supported.includes(nav) ? nav : 'en';
+  }
+
+  function setLang(lang){
+    if(!supported.includes(lang)) lang = 'en';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const value = translations[lang][key];
+      if(value !== undefined) el.innerHTML = value;
+    });
+    document.title = lang === 'fr'
+      ? "Ismail Tazi — Data Analyst (Alternance)"
+      : "Ismail Tazi — Data Analyst (Work-Study)";
+    langToggle.textContent = lang === 'fr' ? 'EN' : 'FR';
+    langToggle.setAttribute('aria-label', lang === 'fr' ? 'Switch to English' : 'Passer en français');
+    document.documentElement.dataset.currentLang = lang;
+  }
+
+  langToggle.addEventListener('click', () => {
+    const current = document.documentElement.dataset.currentLang || 'en';
+    setLang(current === 'en' ? 'fr' : 'en');
+  });
+
+  setLang(detectDefaultLang());
+</script>
+
+</body>
+</html>

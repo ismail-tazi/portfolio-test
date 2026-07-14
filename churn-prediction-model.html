@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer churn prediction model — Ismail Tazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case-study.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="../index.html">Ismail <span>T.</span></a>
+    <div class="back-link">
+      <a href="../index.html#work" data-i18n="nav.back">&larr; all projects</a>
+      <button class="lang-toggle mono" id="langToggle" aria-label="Switch language">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="case-header">
+      <span class="case-eyebrow" data-i18n="cat">Data Scientist</span>
+      <h1 data-i18n="title">Customer churn prediction model</h1>
+      <div class="case-metric" data-i18n="metric">Predicts churn risk from usage patterns</div>
+
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.field.label">Field</span>
+          <span class="meta-val" data-i18n="cat">Data Scientist</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.role.label">My role</span>
+          <span class="meta-val" data-i18n="meta.role.val">Data Analyst (Work-Study)</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.tools.label">Core tools</span>
+          <span class="meta-val">Python · scikit-learn</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <line x1="24" y1="30" x2="24" y2="140" stroke="#FDF0D5" stroke-width="1" opacity="0.25"/>
+            <line x1="24" y1="140" x2="216" y2="140" stroke="#FDF0D5" stroke-width="1" opacity="0.25"/>
+            <circle cx="50" cy="110" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="75" cy="95" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="95" cy="105" r="3.5" fill="#FDF0D5" opacity="0.55"/>
+            <circle cx="115" cy="80" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="140" cy="70" r="3.5" fill="#FDF0D5" opacity="0.6"/>
+            <circle cx="160" cy="55" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="185" cy="45" r="3.5" fill="#FDF0D5" opacity="0.6"/>
+            <path d="M40 125 C 90 105, 150 60, 200 35" stroke="#C1121F" stroke-width="2.5" fill="none"/>
+      </svg>
+    </div>
+
+    <span class="placeholder-note" data-i18n="note">This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.</span>
+
+    <div class="case-body" style="margin-top:40px;">
+
+      <div class="case-section">
+        <h2 data-i18n="challenge.h">The challenge</h2>
+        <p data-i18n="challenge.p">Knowing that month-to-month customers churn more (from the earlier descriptive analysis) is useful, but it doesn't say which specific customers are about to leave. Turning that insight into a per-customer risk score needed a predictive model, not just a descriptive one.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="approach.h">The approach</h2>
+        <ul>
+          <li data-i18n="approach.1">Reused the churn dataset from the descriptive analysis and engineered additional features (tenure buckets, support-ticket counts, contract type).</li>
+          <li data-i18n="approach.2">Trained a logistic regression model as an interpretable baseline.</li>
+          <li data-i18n="approach.3">Trained a random forest model and compared it against the baseline.</li>
+          <li data-i18n="approach.4">Evaluated both on precision and recall rather than accuracy alone, since churn is an imbalanced problem where accuracy is misleading.</li>
+          <li data-i18n="approach.5">Translated the top features into plain business language instead of leaving them as model coefficients.</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="result.h">The result</h2>
+        <p data-i18n="result.p">The model flags high-risk customers before they cancel, and the feature importance translates directly into a retention talking point: customers on month-to-month contracts with high support-ticket counts are far more likely to churn.</p>
+        <ul style="margin-top:14px;">
+          <li data-i18n="result.item.1">Logistic regression baseline vs. random forest comparison</li>
+          <li data-i18n="result.item.2">Evaluated on precision/recall, not just accuracy</li>
+          <li data-i18n="result.item.3">Feature importance explained in plain business language</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="reflect.h">What I'd do differently</h2>
+        <p data-i18n="reflect.p">This project taught me that a good model is only half the deliverable — translating 'feature X has coefficient Y' into something a retention manager can act on took as much effort as the modeling itself. I'd start with the business translation next time, and let it guide which features I engineer.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="stack.h">Tools &amp; stack</h2>
+        <div class="stack-tags"><span>Python</span><span>scikit-learn</span><span>Pandas</span></div>
+      </div>
+
+      <!-- GitHub link: add the real repo URL below once this project has a public repo -->
+      <div class="github-cta">
+        <div>
+          <h3 data-i18n="github.h">View the code</h3>
+          <p data-i18n="github.p">The full implementation, including data prep and modeling code, is available on GitHub.</p>
+        </div>
+        <a class="github-btn" href="#" target="_blank" rel="noopener" data-i18n="github.btn">View on GitHub &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="case-next">
+      <a href="ecommerce-funnel-cohort-report.html" data-i18n="nav.prev">&larr; previous project</a>
+      <a href="../index.html#work" data-i18n="nav.allwork">all projects</a>
+      <a href="budget-variance-report.html" data-i18n="nav.next">next project &rarr;</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ismail Tazi</span>
+    <a href="../index.html#contact" data-i18n="footer.contact">Get in touch</a>
+  </div>
+</footer>
+
+<script>
+  window.CASE_TITLES = { en: "Customer churn prediction model — Ismail Tazi", fr: "Modèle de prédiction du churn client — Ismail Tazi" };
+  window.CASE_TRANSLATIONS = {
+    en: {
+      "nav.back": "&larr; all projects",
+      "meta.field.label": "Field",
+      "meta.role.label": "My role",
+      "meta.role.val": "Data Analyst (Work-Study)",
+      "meta.tools.label": "Core tools",
+      "note": "This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.",
+      "challenge.h": "The challenge",
+      "approach.h": "The approach",
+      "result.h": "The result",
+      "reflect.h": "What I'd do differently",
+      "stack.h": "Tools &amp; stack",
+      "github.h": "View the code",
+      "github.p": "The full implementation, including data prep and modeling code, is available on GitHub.",
+      "github.btn": "View on GitHub &rarr;",
+      "nav.prev": "&larr; previous project",
+      "nav.allwork": "all projects",
+      "nav.next": "next project &rarr;",
+      "footer.contact": "Get in touch",
+      "cat": "Data Scientist",
+      "title": "Customer churn prediction model",
+      "metric": "Predicts churn risk from usage patterns",
+      "challenge.p": "Knowing that month-to-month customers churn more (from the earlier descriptive analysis) is useful, but it doesn't say which specific customers are about to leave. Turning that insight into a per-customer risk score needed a predictive model, not just a descriptive one.",
+      "result.p": "The model flags high-risk customers before they cancel, and the feature importance translates directly into a retention talking point: customers on month-to-month contracts with high support-ticket counts are far more likely to churn.",
+      "reflect.p": "This project taught me that a good model is only half the deliverable — translating 'feature X has coefficient Y' into something a retention manager can act on took as much effort as the modeling itself. I'd start with the business translation next time, and let it guide which features I engineer.",
+      "approach.1": "Reused the churn dataset from the descriptive analysis and engineered additional features (tenure buckets, support-ticket counts, contract type).",
+      "approach.2": "Trained a logistic regression model as an interpretable baseline.",
+      "approach.3": "Trained a random forest model and compared it against the baseline.",
+      "approach.4": "Evaluated both on precision and recall rather than accuracy alone, since churn is an imbalanced problem where accuracy is misleading.",
+      "approach.5": "Translated the top features into plain business language instead of leaving them as model coefficients.",
+      "result.item.1": "Logistic regression baseline vs. random forest comparison",
+      "result.item.2": "Evaluated on precision/recall, not just accuracy",
+      "result.item.3": "Feature importance explained in plain business language",
+    },
+    fr: {
+      "nav.back": "&larr; tous les projets",
+      "meta.field.label": "Domaine",
+      "meta.role.label": "Mon rôle",
+      "meta.role.val": "Data Analyst (Alternance)",
+      "meta.tools.label": "Outils principaux",
+      "note": "Cette étude de cas est un modèle provisoire construit autour d'un scénario métier simulé — remplacez les détails ci-dessous par vos vraies données, chiffres et captures d'écran au fur et à mesure.",
+      "challenge.h": "Le défi",
+      "approach.h": "L'approche",
+      "result.h": "Le résultat",
+      "reflect.h": "Ce que je ferais différemment",
+      "stack.h": "Outils &amp; stack",
+      "github.h": "Voir le code",
+      "github.p": "L'implémentation complète, incluant la préparation des données et le code de modélisation, est disponible sur GitHub.",
+      "github.btn": "Voir sur GitHub &rarr;",
+      "nav.prev": "&larr; projet précédent",
+      "nav.allwork": "tous les projets",
+      "nav.next": "projet suivant &rarr;",
+      "footer.contact": "Me contacter",
+      "cat": "Data Scientist",
+      "title": "Modèle de prédiction du churn client",
+      "metric": "Prédit le risque de churn à partir des habitudes d'usage",
+      "challenge.p": "Savoir que les clients sous contrat mensuel résilient davantage (grâce à l'analyse descriptive précédente) est utile, mais cela n'indique pas quels clients précis s'apprêtent à partir. Transformer ce constat en score de risque par client nécessitait un modèle prédictif, pas seulement descriptif.",
+      "result.p": "Le modèle signale les clients à haut risque avant leur résiliation, et l'importance des variables se traduit directement en argument de rétention : les clients sous contrat mensuel avec un nombre élevé de tickets support sont bien plus susceptibles de résilier.",
+      "reflect.p": "Ce projet m'a appris qu'un bon modèle n'est que la moitié du livrable — traduire « la variable X a un coefficient Y » en quelque chose d'exploitable par un responsable rétention a demandé autant d'effort que la modélisation elle-même. La prochaine fois, je partirais de la traduction métier, et je la laisserais guider les variables à construire.",
+      "approach.1": "Réutilisé le jeu de données de churn de l'analyse descriptive et conçu des variables supplémentaires (tranches d'ancienneté, nombre de tickets support, type de contrat).",
+      "approach.2": "Entraîné un modèle de régression logistique comme référence interprétable.",
+      "approach.3": "Entraîné un modèle random forest et comparé ses performances à la référence.",
+      "approach.4": "Évalué les deux modèles sur la précision et le rappel plutôt que la seule exactitude, le churn étant un problème déséquilibré où l'exactitude est trompeuse.",
+      "approach.5": "Traduit les variables les plus importantes en langage métier plutôt que de les laisser sous forme de coefficients de modèle.",
+      "result.item.1": "Comparaison entre une référence en régression logistique et un random forest",
+      "result.item.2": "Évalué sur la précision et le rappel, pas seulement l'exactitude",
+      "result.item.3": "Importance des variables expliquée en langage métier simple",
+    }
+  };
+</script>
+<script src="../assets/case-study.js"></script>
+
+</body>
+</html>
