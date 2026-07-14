@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-commerce funnel &amp; cohort report — Ismail Tazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case-study.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="../index.html">Ismail <span>T.</span></a>
+    <div class="back-link">
+      <a href="../index.html#work" data-i18n="nav.back">&larr; all projects</a>
+      <button class="lang-toggle mono" id="langToggle" aria-label="Switch language">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="case-header">
+      <span class="case-eyebrow" data-i18n="cat">Data Analyst</span>
+      <h1 data-i18n="title">E-commerce funnel &amp; cohort report</h1>
+      <div class="case-metric" data-i18n="metric">Cart-to-purchase drop-off mapped end to end</div>
+
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.field.label">Field</span>
+          <span class="meta-val" data-i18n="cat">Data Analyst</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.role.label">My role</span>
+          <span class="meta-val" data-i18n="meta.role.val">Data Analyst (Work-Study)</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.tools.label">Core tools</span>
+          <span class="meta-val">SQL · Python · Power BI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 40 H190 L150 90 H90 Z" fill="none" stroke="#FDF0D5" stroke-width="1.5" opacity="0.8"/>
+            <path d="M90 90 H150 L130 130 H110 Z" fill="#C1121F" opacity="0.9"/>
+            <text x="120" y="30" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.6">visits</text>
+            <text x="120" y="108" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.6">cart</text>
+            <text x="120" y="148" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.9">purchase</text>
+      </svg>
+    </div>
+
+    <span class="placeholder-note" data-i18n="note">This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.</span>
+
+    <div class="case-body" style="margin-top:40px;">
+
+      <div class="case-section">
+        <h2 data-i18n="challenge.h">The challenge</h2>
+        <p data-i18n="challenge.p">A marketplace-style platform wants to know where it's losing customers on the path from visit to purchase, and what a first-month customer is actually worth over time — questions that raw event logs don't answer on their own.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="approach.h">The approach</h2>
+        <ul>
+          <li data-i18n="approach.1">Queried raw funnel events (visit, cart, purchase) in SQL and structured them into a clean, stage-by-stage table.</li>
+          <li data-i18n="approach.2">Used Python (pandas) to calculate drop-off rates at each funnel stage and build month-1 cohort retention curves.</li>
+          <li data-i18n="approach.3">Estimated LTV for month-1 cohorts based on their subsequent purchase behavior.</li>
+          <li data-i18n="approach.4">Exported the clean tables into Power BI to build a funnel and cohort visualization layer.</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="result.h">The result</h2>
+        <p data-i18n="result.p">The funnel analysis pinpointed exactly which stage lost the most customers, and the cohort view showed how much a typical month-1 customer was worth over their first few months — turning a vague growth question into two specific, actionable numbers.</p>
+        <ul style="margin-top:14px;">
+          <li data-i18n="result.item.1">Funnel drop-off quantified at each stage</li>
+          <li data-i18n="result.item.2">Month-1 cohort retention curve built in Python</li>
+          <li data-i18n="result.item.3">Python analysis exported cleanly into a Power BI presentation layer</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="reflect.h">What I'd do differently</h2>
+        <p data-i18n="reflect.p">Bridging the Python analysis into Power BI cleanly took more iteration than I expected — I initially exported far more columns than the dashboard needed. Next time, I'd design the handoff format between the two tools before starting the analysis, not after.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="stack.h">Tools &amp; stack</h2>
+        <div class="stack-tags"><span>SQL</span><span>Python</span><span>Pandas</span><span>Power BI</span></div>
+      </div>
+
+      <!-- GitHub link: add the real repo URL below once this project has a public repo -->
+      <div class="github-cta">
+        <div>
+          <h3 data-i18n="github.h">View the code</h3>
+          <p data-i18n="github.p">The full implementation, including data prep and modeling code, is available on GitHub.</p>
+        </div>
+        <a class="github-btn" href="#" target="_blank" rel="noopener" data-i18n="github.btn">View on GitHub &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="case-next">
+      <a href="dbt-snowflake-pipeline.html" data-i18n="nav.prev">&larr; previous project</a>
+      <a href="../index.html#work" data-i18n="nav.allwork">all projects</a>
+      <a href="churn-prediction-model.html" data-i18n="nav.next">next project &rarr;</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ismail Tazi</span>
+    <a href="../index.html#contact" data-i18n="footer.contact">Get in touch</a>
+  </div>
+</footer>
+
+<script>
+  window.CASE_TITLES = { en: "E-commerce funnel &amp; cohort report — Ismail Tazi", fr: "Rapport de funnel et cohortes e-commerce — Ismail Tazi" };
+  window.CASE_TRANSLATIONS = {
+    en: {
+      "nav.back": "&larr; all projects",
+      "meta.field.label": "Field",
+      "meta.role.label": "My role",
+      "meta.role.val": "Data Analyst (Work-Study)",
+      "meta.tools.label": "Core tools",
+      "note": "This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.",
+      "challenge.h": "The challenge",
+      "approach.h": "The approach",
+      "result.h": "The result",
+      "reflect.h": "What I'd do differently",
+      "stack.h": "Tools &amp; stack",
+      "github.h": "View the code",
+      "github.p": "The full implementation, including data prep and modeling code, is available on GitHub.",
+      "github.btn": "View on GitHub &rarr;",
+      "nav.prev": "&larr; previous project",
+      "nav.allwork": "all projects",
+      "nav.next": "next project &rarr;",
+      "footer.contact": "Get in touch",
+      "cat": "Data Analyst",
+      "title": "E-commerce funnel &amp; cohort report",
+      "metric": "Cart-to-purchase drop-off mapped end to end",
+      "challenge.p": "A marketplace-style platform wants to know where it's losing customers on the path from visit to purchase, and what a first-month customer is actually worth over time — questions that raw event logs don't answer on their own.",
+      "result.p": "The funnel analysis pinpointed exactly which stage lost the most customers, and the cohort view showed how much a typical month-1 customer was worth over their first few months — turning a vague growth question into two specific, actionable numbers.",
+      "reflect.p": "Bridging the Python analysis into Power BI cleanly took more iteration than I expected — I initially exported far more columns than the dashboard needed. Next time, I'd design the handoff format between the two tools before starting the analysis, not after.",
+      "approach.1": "Queried raw funnel events (visit, cart, purchase) in SQL and structured them into a clean, stage-by-stage table.",
+      "approach.2": "Used Python (pandas) to calculate drop-off rates at each funnel stage and build month-1 cohort retention curves.",
+      "approach.3": "Estimated LTV for month-1 cohorts based on their subsequent purchase behavior.",
+      "approach.4": "Exported the clean tables into Power BI to build a funnel and cohort visualization layer.",
+      "result.item.1": "Funnel drop-off quantified at each stage",
+      "result.item.2": "Month-1 cohort retention curve built in Python",
+      "result.item.3": "Python analysis exported cleanly into a Power BI presentation layer",
+    },
+    fr: {
+      "nav.back": "&larr; tous les projets",
+      "meta.field.label": "Domaine",
+      "meta.role.label": "Mon rôle",
+      "meta.role.val": "Data Analyst (Alternance)",
+      "meta.tools.label": "Outils principaux",
+      "note": "Cette étude de cas est un modèle provisoire construit autour d'un scénario métier simulé — remplacez les détails ci-dessous par vos vraies données, chiffres et captures d'écran au fur et à mesure.",
+      "challenge.h": "Le défi",
+      "approach.h": "L'approche",
+      "result.h": "Le résultat",
+      "reflect.h": "Ce que je ferais différemment",
+      "stack.h": "Outils &amp; stack",
+      "github.h": "Voir le code",
+      "github.p": "L'implémentation complète, incluant la préparation des données et le code de modélisation, est disponible sur GitHub.",
+      "github.btn": "Voir sur GitHub &rarr;",
+      "nav.prev": "&larr; projet précédent",
+      "nav.allwork": "tous les projets",
+      "nav.next": "projet suivant &rarr;",
+      "footer.contact": "Me contacter",
+      "cat": "Analyste de données",
+      "title": "Rapport de funnel et cohortes e-commerce",
+      "metric": "Taux d'abandon panier-achat cartographié de bout en bout",
+      "challenge.p": "Une plateforme de type marketplace veut savoir où elle perd des clients entre la visite et l'achat, et ce que vaut réellement un client de premier mois dans le temps — des questions auxquelles les logs d'événements bruts ne répondent pas seuls.",
+      "result.p": "L'analyse du funnel a permis d'identifier précisément l'étape qui perdait le plus de clients, et la vue par cohorte a montré la valeur d'un client type du mois 1 sur ses premiers mois — transformant une question de croissance vague en deux chiffres précis et exploitables.",
+      "reflect.p": "Faire le pont proprement entre l'analyse Python et Power BI a demandé plus d'itérations que prévu — j'ai d'abord exporté bien plus de colonnes que nécessaire pour le tableau de bord. La prochaine fois, je concevrais le format de transfert entre les deux outils avant de commencer l'analyse, pas après.",
+      "approach.1": "Interrogé les événements de funnel bruts (visite, panier, achat) sous SQL et structuré une table propre, étape par étape.",
+      "approach.2": "Utilisé Python (pandas) pour calculer les taux d'abandon à chaque étape du funnel et construire des courbes de rétention par cohorte du mois 1.",
+      "approach.3": "Estimé la LTV des cohortes du mois 1 à partir de leur comportement d'achat ultérieur.",
+      "approach.4": "Exporté les tables nettoyées vers Power BI pour construire une couche de visualisation du funnel et des cohortes.",
+      "result.item.1": "Abandon du funnel quantifié à chaque étape",
+      "result.item.2": "Courbe de rétention par cohorte du mois 1 construite en Python",
+      "result.item.3": "Analyse Python exportée proprement vers une couche de présentation Power BI",
+    }
+  };
+</script>
+<script src="../assets/case-study.js"></script>
+
+</body>
+</html>
