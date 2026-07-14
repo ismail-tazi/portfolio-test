@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dbt + Snowflake analytics pipeline — Ismail Tazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case-study.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="../index.html">Ismail <span>T.</span></a>
+    <div class="back-link">
+      <a href="../index.html#work" data-i18n="nav.back">&larr; all projects</a>
+      <button class="lang-toggle mono" id="langToggle" aria-label="Switch language">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="case-header">
+      <span class="case-eyebrow" data-i18n="cat">Data Engineering</span>
+      <h1 data-i18n="title">dbt + Snowflake analytics pipeline</h1>
+      <div class="case-metric" data-i18n="metric">Raw &rarr; staging &rarr; marts, fully tested</div>
+
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.field.label">Field</span>
+          <span class="meta-val" data-i18n="cat">Data Engineering</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.role.label">My role</span>
+          <span class="meta-val" data-i18n="meta.role.val">Data Analyst (Work-Study)</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.tools.label">Core tools</span>
+          <span class="meta-val">dbt · Snowflake · SQL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <rect x="24" y="74" width="46" height="30" rx="3" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.85"/>
+            <rect x="97" y="74" width="46" height="30" rx="3" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.85"/>
+            <rect x="170" y="74" width="46" height="30" rx="3" fill="#C1121F" opacity="0.9"/>
+            <path d="M70 89 H97" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <path d="M143 89 H170" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="47" cy="89" r="2" fill="#FDF0D5"/>
+            <circle cx="120" cy="89" r="2" fill="#FDF0D5"/>
+            <text x="47" y="122" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.55">staging</text>
+            <text x="120" y="122" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.55">intermediate</text>
+            <text x="193" y="122" font-family="JetBrains Mono, monospace" font-size="9" fill="#FDF0D5" text-anchor="middle" opacity="0.85">marts</text>
+      </svg>
+    </div>
+
+    <span class="placeholder-note" data-i18n="note">This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.</span>
+
+    <div class="case-body" style="margin-top:40px;">
+
+      <div class="case-section">
+        <h2 data-i18n="challenge.h">The challenge</h2>
+        <p data-i18n="challenge.p">Raw sales data sitting in a warehouse isn't analytics-ready on its own — without a clear modeling layer, every report ends up rebuilding the same transformations from scratch, inconsistently.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="approach.h">The approach</h2>
+        <ul>
+          <li data-i18n="approach.1">Loaded the raw retail sales data into Snowflake.</li>
+          <li data-i18n="approach.2">Structured the transformation logic into a layered dbt project: raw &rarr; staging &rarr; intermediate &rarr; marts.</li>
+          <li data-i18n="approach.3">Added dbt tests (not_null, unique, relationships) to catch data-quality issues before they reach a dashboard.</li>
+          <li data-i18n="approach.4">Built a couple of incremental models and documented every model's grain and purpose with dbt docs.</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="result.h">The result</h2>
+        <p data-i18n="result.p">The warehouse now has a single, tested, documented source of truth for sales data — any new report builds on the marts layer instead of re-deriving the same numbers a different way.</p>
+        <ul style="margin-top:14px;">
+          <li data-i18n="result.item.1">3-layer dbt project (staging, intermediate, marts)</li>
+          <li data-i18n="result.item.2">Automated tests catch data-quality issues before dashboards do</li>
+          <li data-i18n="result.item.3">Incremental models keep transformations fast as data grows</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="reflect.h">What I'd do differently</h2>
+        <p data-i18n="reflect.p">Deciding the right grain for each mart table was harder than writing the SQL itself. I'd spend more time upfront sketching the intended marts on paper before writing a single model, rather than discovering the right grain through trial and error.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="stack.h">Tools &amp; stack</h2>
+        <div class="stack-tags"><span>dbt</span><span>Snowflake</span><span>SQL</span></div>
+      </div>
+
+      <!-- GitHub link: add the real repo URL below once this project has a public repo -->
+      <div class="github-cta">
+        <div>
+          <h3 data-i18n="github.h">View the code</h3>
+          <p data-i18n="github.p">The full implementation, including data prep and modeling code, is available on GitHub.</p>
+        </div>
+        <a class="github-btn" href="#" target="_blank" rel="noopener" data-i18n="github.btn">View on GitHub &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="case-next">
+      <a href="telecom-churn-analysis.html" data-i18n="nav.prev">&larr; previous project</a>
+      <a href="../index.html#work" data-i18n="nav.allwork">all projects</a>
+      <a href="ecommerce-funnel-cohort-report.html" data-i18n="nav.next">next project &rarr;</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ismail Tazi</span>
+    <a href="../index.html#contact" data-i18n="footer.contact">Get in touch</a>
+  </div>
+</footer>
+
+<script>
+  window.CASE_TITLES = { en: "dbt + Snowflake analytics pipeline — Ismail Tazi", fr: "Pipeline analytique dbt + Snowflake — Ismail Tazi" };
+  window.CASE_TRANSLATIONS = {
+    en: {
+      "nav.back": "&larr; all projects",
+      "meta.field.label": "Field",
+      "meta.role.label": "My role",
+      "meta.role.val": "Data Analyst (Work-Study)",
+      "meta.tools.label": "Core tools",
+      "note": "This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.",
+      "challenge.h": "The challenge",
+      "approach.h": "The approach",
+      "result.h": "The result",
+      "reflect.h": "What I'd do differently",
+      "stack.h": "Tools &amp; stack",
+      "github.h": "View the code",
+      "github.p": "The full implementation, including data prep and modeling code, is available on GitHub.",
+      "github.btn": "View on GitHub &rarr;",
+      "nav.prev": "&larr; previous project",
+      "nav.allwork": "all projects",
+      "nav.next": "next project &rarr;",
+      "footer.contact": "Get in touch",
+      "cat": "Data Engineering",
+      "title": "dbt + Snowflake analytics pipeline",
+      "metric": "Raw &rarr; staging &rarr; marts, fully tested",
+      "challenge.p": "Raw sales data sitting in a warehouse isn't analytics-ready on its own — without a clear modeling layer, every report ends up rebuilding the same transformations from scratch, inconsistently.",
+      "result.p": "The warehouse now has a single, tested, documented source of truth for sales data — any new report builds on the marts layer instead of re-deriving the same numbers a different way.",
+      "reflect.p": "Deciding the right grain for each mart table was harder than writing the SQL itself. I'd spend more time upfront sketching the intended marts on paper before writing a single model, rather than discovering the right grain through trial and error.",
+      "approach.1": "Loaded the raw retail sales data into Snowflake.",
+      "approach.2": "Structured the transformation logic into a layered dbt project: raw &rarr; staging &rarr; intermediate &rarr; marts.",
+      "approach.3": "Added dbt tests (not_null, unique, relationships) to catch data-quality issues before they reach a dashboard.",
+      "approach.4": "Built a couple of incremental models and documented every model's grain and purpose with dbt docs.",
+      "result.item.1": "3-layer dbt project (staging, intermediate, marts)",
+      "result.item.2": "Automated tests catch data-quality issues before dashboards do",
+      "result.item.3": "Incremental models keep transformations fast as data grows",
+    },
+    fr: {
+      "nav.back": "&larr; tous les projets",
+      "meta.field.label": "Domaine",
+      "meta.role.label": "Mon rôle",
+      "meta.role.val": "Data Analyst (Alternance)",
+      "meta.tools.label": "Outils principaux",
+      "note": "Cette étude de cas est un modèle provisoire construit autour d'un scénario métier simulé — remplacez les détails ci-dessous par vos vraies données, chiffres et captures d'écran au fur et à mesure.",
+      "challenge.h": "Le défi",
+      "approach.h": "L'approche",
+      "result.h": "Le résultat",
+      "reflect.h": "Ce que je ferais différemment",
+      "stack.h": "Outils &amp; stack",
+      "github.h": "Voir le code",
+      "github.p": "L'implémentation complète, incluant la préparation des données et le code de modélisation, est disponible sur GitHub.",
+      "github.btn": "Voir sur GitHub &rarr;",
+      "nav.prev": "&larr; projet précédent",
+      "nav.allwork": "tous les projets",
+      "nav.next": "projet suivant &rarr;",
+      "footer.contact": "Me contacter",
+      "cat": "Ingénierie des données",
+      "title": "Pipeline analytique dbt + Snowflake",
+      "metric": "Brut &rarr; staging &rarr; marts, entièrement testé",
+      "challenge.p": "Des données de ventes brutes stockées dans un entrepôt ne sont pas prêtes pour l'analyse en l'état — sans couche de modélisation claire, chaque rapport finit par reconstruire les mêmes transformations depuis zéro, de façon incohérente.",
+      "result.p": "L'entrepôt dispose désormais d'une source unique, testée et documentée pour les données de ventes — tout nouveau rapport s'appuie sur la couche marts plutôt que de recalculer les mêmes chiffres différemment.",
+      "reflect.p": "Déterminer le bon grain pour chaque table mart a été plus difficile que d'écrire le SQL lui-même. Je passerais plus de temps en amont à esquisser les marts prévus sur papier avant d'écrire le moindre modèle, plutôt que de découvrir le bon grain par essais successifs.",
+      "approach.1": "Chargé les données de ventes retail brutes dans Snowflake.",
+      "approach.2": "Structuré la logique de transformation en un projet dbt en couches : brut &rarr; staging &rarr; intermédiaire &rarr; marts.",
+      "approach.3": "Ajouté des tests dbt (not_null, unique, relationships) pour détecter les problèmes de qualité de données avant qu'ils n'atteignent un tableau de bord.",
+      "approach.4": "Construit quelques modèles incrémentaux et documenté le grain et la finalité de chaque modèle avec dbt docs.",
+      "result.item.1": "Projet dbt en 3 couches (staging, intermédiaire, marts)",
+      "result.item.2": "Des tests automatisés détectent les problèmes de qualité avant les tableaux de bord",
+      "result.item.3": "Les modèles incrémentaux gardent les transformations rapides à mesure que les données croissent",
+    }
+  };
+</script>
+<script src="../assets/case-study.js"></script>
+
+</body>
+</html>

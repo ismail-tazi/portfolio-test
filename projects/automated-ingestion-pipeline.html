@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automated ingestion pipeline — Ismail Tazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case-study.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="../index.html">Ismail <span>T.</span></a>
+    <div class="back-link">
+      <a href="../index.html#work" data-i18n="nav.back">&larr; all projects</a>
+      <button class="lang-toggle mono" id="langToggle" aria-label="Switch language">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="case-header">
+      <span class="case-eyebrow" data-i18n="cat">Data Engineering</span>
+      <h1 data-i18n="title">Automated ingestion pipeline</h1>
+      <div class="case-metric" data-i18n="metric">Daily automated ingestion, zero manual pulls</div>
+
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.field.label">Field</span>
+          <span class="meta-val" data-i18n="cat">Data Engineering</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.role.label">My role</span>
+          <span class="meta-val" data-i18n="meta.role.val">Data Analyst (Work-Study)</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.tools.label">Core tools</span>
+          <span class="meta-val">Python · Airflow · Snowflake</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="45" cy="90" r="16" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.8"/>
+            <text x="45" y="94" font-family="JetBrains Mono, monospace" font-size="8" fill="#FDF0D5" text-anchor="middle" opacity="0.75">API</text>
+            <path d="M62 90 H100" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <path d="M92 84 L100 90 L92 96" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <rect x="100" y="70" width="46" height="40" rx="3" fill="#C1121F" opacity="0.9"/>
+            <text x="123" y="93" font-family="JetBrains Mono, monospace" font-size="8" fill="#FDF0D5" text-anchor="middle" opacity="0.9">Airflow</text>
+            <path d="M146 90 H184" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <path d="M176 84 L184 90 L176 96" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <rect x="184" y="74" width="32" height="32" rx="3" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.85"/>
+      </svg>
+    </div>
+
+    <span class="placeholder-note" data-i18n="note">This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.</span>
+
+    <div class="case-body" style="margin-top:40px;">
+
+      <div class="case-section">
+        <h2 data-i18n="challenge.h">The challenge</h2>
+        <p data-i18n="challenge.p">Every company has some daily or nightly data pull that, without automation, quietly depends on someone remembering to run it — and on nobody being on vacation the day it breaks.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="approach.h">The approach</h2>
+        <ul>
+          <li data-i18n="approach.1">Connected to an external API (exchange rates or weather data) to pull fresh data on a schedule.</li>
+          <li data-i18n="approach.2">Wrote the ingestion logic in Python, with basic logging and error handling so failures are visible instead of silent.</li>
+          <li data-i18n="approach.3">Scheduled the pipeline with Airflow to run automatically, without manual triggering.</li>
+          <li data-i18n="approach.4">Loaded the ingested data into a Snowflake warehouse, ready for downstream modeling.</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="result.h">The result</h2>
+        <p data-i18n="result.p">The pipeline now runs unattended on schedule, with failures logged instead of discovered days later when someone notices stale data.</p>
+        <ul style="margin-top:14px;">
+          <li data-i18n="result.item.1">Fully automated daily ingestion</li>
+          <li data-i18n="result.item.2">Basic error handling and logging in place</li>
+          <li data-i18n="result.item.3">Feeds directly into the warehouse, ready for dbt modeling</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="reflect.h">What I'd do differently</h2>
+        <p data-i18n="reflect.p">I kept the error handling fairly basic — it logs failures but doesn't yet retry or alert anyone. Adding retries and a simple alert (even just an email) is the natural next step before I'd trust this pipeline with something business-critical.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="stack.h">Tools &amp; stack</h2>
+        <div class="stack-tags"><span>Python</span><span>Airflow</span><span>Snowflake</span></div>
+      </div>
+
+      <!-- GitHub link: add the real repo URL below once this project has a public repo -->
+      <div class="github-cta">
+        <div>
+          <h3 data-i18n="github.h">View the code</h3>
+          <p data-i18n="github.p">The full implementation, including data prep and modeling code, is available on GitHub.</p>
+        </div>
+        <a class="github-btn" href="#" target="_blank" rel="noopener" data-i18n="github.btn">View on GitHub &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="case-next">
+      <a href="budget-variance-report.html" data-i18n="nav.prev">&larr; previous project</a>
+      <a href="../index.html#work" data-i18n="nav.allwork">all projects</a>
+      <a href="retail-banking-sales-dashboard.html" data-i18n="nav.next">next project &rarr;</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ismail Tazi</span>
+    <a href="../index.html#contact" data-i18n="footer.contact">Get in touch</a>
+  </div>
+</footer>
+
+<script>
+  window.CASE_TITLES = { en: "Automated ingestion pipeline — Ismail Tazi", fr: "Pipeline d'ingestion automatisé — Ismail Tazi" };
+  window.CASE_TRANSLATIONS = {
+    en: {
+      "nav.back": "&larr; all projects",
+      "meta.field.label": "Field",
+      "meta.role.label": "My role",
+      "meta.role.val": "Data Analyst (Work-Study)",
+      "meta.tools.label": "Core tools",
+      "note": "This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.",
+      "challenge.h": "The challenge",
+      "approach.h": "The approach",
+      "result.h": "The result",
+      "reflect.h": "What I'd do differently",
+      "stack.h": "Tools &amp; stack",
+      "github.h": "View the code",
+      "github.p": "The full implementation, including data prep and modeling code, is available on GitHub.",
+      "github.btn": "View on GitHub &rarr;",
+      "nav.prev": "&larr; previous project",
+      "nav.allwork": "all projects",
+      "nav.next": "next project &rarr;",
+      "footer.contact": "Get in touch",
+      "cat": "Data Engineering",
+      "title": "Automated ingestion pipeline",
+      "metric": "Daily automated ingestion, zero manual pulls",
+      "challenge.p": "Every company has some daily or nightly data pull that, without automation, quietly depends on someone remembering to run it — and on nobody being on vacation the day it breaks.",
+      "result.p": "The pipeline now runs unattended on schedule, with failures logged instead of discovered days later when someone notices stale data.",
+      "reflect.p": "I kept the error handling fairly basic — it logs failures but doesn't yet retry or alert anyone. Adding retries and a simple alert (even just an email) is the natural next step before I'd trust this pipeline with something business-critical.",
+      "approach.1": "Connected to an external API (exchange rates or weather data) to pull fresh data on a schedule.",
+      "approach.2": "Wrote the ingestion logic in Python, with basic logging and error handling so failures are visible instead of silent.",
+      "approach.3": "Scheduled the pipeline with Airflow to run automatically, without manual triggering.",
+      "approach.4": "Loaded the ingested data into a Snowflake warehouse, ready for downstream modeling.",
+      "result.item.1": "Fully automated daily ingestion",
+      "result.item.2": "Basic error handling and logging in place",
+      "result.item.3": "Feeds directly into the warehouse, ready for dbt modeling",
+    },
+    fr: {
+      "nav.back": "&larr; tous les projets",
+      "meta.field.label": "Domaine",
+      "meta.role.label": "Mon rôle",
+      "meta.role.val": "Data Analyst (Alternance)",
+      "meta.tools.label": "Outils principaux",
+      "note": "Cette étude de cas est un modèle provisoire construit autour d'un scénario métier simulé — remplacez les détails ci-dessous par vos vraies données, chiffres et captures d'écran au fur et à mesure.",
+      "challenge.h": "Le défi",
+      "approach.h": "L'approche",
+      "result.h": "Le résultat",
+      "reflect.h": "Ce que je ferais différemment",
+      "stack.h": "Outils &amp; stack",
+      "github.h": "Voir le code",
+      "github.p": "L'implémentation complète, incluant la préparation des données et le code de modélisation, est disponible sur GitHub.",
+      "github.btn": "Voir sur GitHub &rarr;",
+      "nav.prev": "&larr; projet précédent",
+      "nav.allwork": "tous les projets",
+      "nav.next": "projet suivant &rarr;",
+      "footer.contact": "Me contacter",
+      "cat": "Ingénierie des données",
+      "title": "Pipeline d'ingestion automatisé",
+      "metric": "Ingestion quotidienne automatisée, zéro extraction manuelle",
+      "challenge.p": "Chaque entreprise a une extraction de données quotidienne ou nocturne qui, sans automatisation, dépend discrètement de quelqu'un qui pense à la lancer — et du fait que personne ne soit en congé le jour où elle plante.",
+      "result.p": "Le pipeline s'exécute désormais sans intervention selon le planning prévu, avec les échecs journalisés au lieu d'être découverts des jours plus tard quand quelqu'un remarque des données obsolètes.",
+      "reflect.p": "J'ai gardé une gestion des erreurs assez basique — elle journalise les échecs mais ne relance pas encore automatiquement et n'alerte personne. Ajouter des relances et une alerte simple (même un simple email) est l'étape naturelle suivante avant de confier à ce pipeline quelque chose de critique pour l'activité.",
+      "approach.1": "Connecté à une API externe (taux de change ou données météo) pour récupérer des données fraîches selon un planning.",
+      "approach.2": "Écrit la logique d'ingestion en Python, avec journalisation et gestion des erreurs basiques pour que les échecs soient visibles plutôt que silencieux.",
+      "approach.3": "Planifié le pipeline avec Airflow pour qu'il s'exécute automatiquement, sans déclenchement manuel.",
+      "approach.4": "Chargé les données ingérées dans un entrepôt Snowflake, prêtes pour la modélisation en aval.",
+      "result.item.1": "Ingestion quotidienne entièrement automatisée",
+      "result.item.2": "Gestion des erreurs et journalisation de base en place",
+      "result.item.3": "Alimente directement l'entrepôt, prêt pour la modélisation dbt",
+    }
+  };
+</script>
+<script src="../assets/case-study.js"></script>
+
+</body>
+</html>
