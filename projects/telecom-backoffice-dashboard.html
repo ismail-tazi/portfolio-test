@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telecom backoffice performance dashboard — Ismail Tazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case-study.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="../index.html">Ismail <span>T.</span></a>
+    <div class="back-link">
+      <a href="../index.html#work" data-i18n="nav.back">&larr; all projects</a>
+      <button class="lang-toggle mono" id="langToggle" aria-label="Switch language">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="case-header">
+      <span class="case-eyebrow" data-i18n="cat">Data Analyst</span>
+      <h1 data-i18n="title">Telecom backoffice performance dashboard</h1>
+      <div class="case-metric" data-i18n="metric">SLA breaches concentrated in port-out requests</div>
+
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.field.label">Field</span>
+          <span class="meta-val" data-i18n="cat">Data Analyst</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.role.label">My role</span>
+          <span class="meta-val" data-i18n="meta.role.val">Data Analyst (Work-Study)</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.tools.label">Core tools</span>
+          <span class="meta-val">SQL · Google Sheets · Power BI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <line x1="24" y1="30" x2="24" y2="140" stroke="#FDF0D5" stroke-width="1" opacity="0.25"/>
+            <line x1="24" y1="140" x2="216" y2="140" stroke="#FDF0D5" stroke-width="1" opacity="0.25"/>
+            <circle cx="50" cy="110" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="75" cy="95" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="95" cy="105" r="3.5" fill="#FDF0D5" opacity="0.55"/>
+            <circle cx="115" cy="80" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="140" cy="70" r="3.5" fill="#FDF0D5" opacity="0.6"/>
+            <circle cx="160" cy="55" r="3.5" fill="#FDF0D5" opacity="0.7"/>
+            <circle cx="185" cy="45" r="3.5" fill="#FDF0D5" opacity="0.6"/>
+            <path d="M40 125 C 90 105, 150 60, 200 35" stroke="#C1121F" stroke-width="2.5" fill="none"/>
+      </svg>
+    </div>
+
+    <span class="placeholder-note" data-i18n="note">This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.</span>
+
+    <div class="case-body" style="margin-top:40px;">
+
+      <div class="case-section">
+        <h2 data-i18n="challenge.h">The challenge</h2>
+        <p data-i18n="challenge.p">A telecom reseller's backoffice team processes a constant stream of port-in, port-out, deactivation, and provisioning requests, but without visibility into ticket volume, turnaround time, and SLA compliance by agent and request type, backlogs build up invisibly until customers start complaining.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="approach.h">The approach</h2>
+        <ul>
+          <li data-i18n="approach.1">Queried and segmented backoffice ticket data in SQL by request type (port-in, port-out, deactivation, provisioning projects, listing updates), agent, and status.</li>
+          <li data-i18n="approach.2">Calculated turnaround time and SLA compliance for each request type to find where delays concentrated.</li>
+          <li data-i18n="approach.3">Built an agent-level workload view to see ticket volume and backlog per agent, not just per request type.</li>
+          <li data-i18n="approach.4">Delivered the findings as a Power BI report plus a one-page executive summary in French, matching the format used internally by the reseller's operations team.</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="result.h">The result</h2>
+        <p data-i18n="result.p">Port-out requests turned out to breach SLA far more often than port-in or deactivation requests — a specific, actionable finding instead of a vague sense that 'the backoffice is behind.'</p>
+        <ul style="margin-top:14px;">
+          <li data-i18n="result.item.1">Tickets broken down by 5 request types</li>
+          <li data-i18n="result.item.2">Agent-level workload and backlog view built from raw ticket data</li>
+          <li data-i18n="result.item.3">1-page executive summary delivered in French</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="reflect.h">What I'd do differently</h2>
+        <p data-i18n="reflect.p">The SQL segmentation by request type was straightforward — the harder part was agreeing on what actually counted as an SLA breach with the operations team, since definitions varied informally by request type before this project. I'd nail down those definitions with stakeholders before writing a single query next time.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="stack.h">Tools &amp; stack</h2>
+        <div class="stack-tags"><span>SQL</span><span>Google Sheets</span><span>Power BI</span><span>SLA Monitoring</span></div>
+      </div>
+
+      <!-- GitHub link: add the real repo URL below once this project has a public repo -->
+      <div class="github-cta">
+        <div>
+          <h3 data-i18n="github.h">View the code</h3>
+          <p data-i18n="github.p">The full implementation, including data prep and modeling code, is available on GitHub.</p>
+        </div>
+        <a class="github-btn" href="#" target="_blank" rel="noopener" data-i18n="github.btn">View on GitHub &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="case-next">
+      <a href="supply-chain-dashboard.html" data-i18n="nav.prev">&larr; previous project</a>
+      <a href="../index.html#work" data-i18n="nav.allwork">all projects</a>
+      <a href="dbt-bigquery-pipeline.html" data-i18n="nav.next">next project &rarr;</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ismail Tazi</span>
+    <a href="../index.html#contact" data-i18n="footer.contact">Get in touch</a>
+  </div>
+</footer>
+
+<script>
+  window.CASE_TITLES = { en: "Telecom backoffice performance dashboard — Ismail Tazi", fr: "Tableau de bord de performance backoffice télécom — Ismail Tazi" };
+  window.CASE_TRANSLATIONS = {
+    en: {
+      "nav.back": "&larr; all projects",
+      "meta.field.label": "Field",
+      "meta.role.label": "My role",
+      "meta.role.val": "Data Analyst (Work-Study)",
+      "meta.tools.label": "Core tools",
+      "note": "This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.",
+      "challenge.h": "The challenge",
+      "approach.h": "The approach",
+      "result.h": "The result",
+      "reflect.h": "What I'd do differently",
+      "stack.h": "Tools &amp; stack",
+      "github.h": "View the code",
+      "github.p": "The full implementation, including data prep and modeling code, is available on GitHub.",
+      "github.btn": "View on GitHub &rarr;",
+      "nav.prev": "&larr; previous project",
+      "nav.allwork": "all projects",
+      "nav.next": "next project &rarr;",
+      "footer.contact": "Get in touch",
+      "cat": "Data Analyst",
+      "title": "Telecom backoffice performance dashboard",
+      "metric": "SLA breaches concentrated in port-out requests",
+      "challenge.p": "A telecom reseller's backoffice team processes a constant stream of port-in, port-out, deactivation, and provisioning requests, but without visibility into ticket volume, turnaround time, and SLA compliance by agent and request type, backlogs build up invisibly until customers start complaining.",
+      "result.p": "Port-out requests turned out to breach SLA far more often than port-in or deactivation requests — a specific, actionable finding instead of a vague sense that 'the backoffice is behind.'",
+      "reflect.p": "The SQL segmentation by request type was straightforward — the harder part was agreeing on what actually counted as an SLA breach with the operations team, since definitions varied informally by request type before this project. I'd nail down those definitions with stakeholders before writing a single query next time.",
+      "approach.1": "Queried and segmented backoffice ticket data in SQL by request type (port-in, port-out, deactivation, provisioning projects, listing updates), agent, and status.",
+      "approach.2": "Calculated turnaround time and SLA compliance for each request type to find where delays concentrated.",
+      "approach.3": "Built an agent-level workload view to see ticket volume and backlog per agent, not just per request type.",
+      "approach.4": "Delivered the findings as a Power BI report plus a one-page executive summary in French, matching the format used internally by the reseller's operations team.",
+      "result.item.1": "Tickets broken down by 5 request types",
+      "result.item.2": "Agent-level workload and backlog view built from raw ticket data",
+      "result.item.3": "1-page executive summary delivered in French",
+    },
+    fr: {
+      "nav.back": "&larr; tous les projets",
+      "meta.field.label": "Domaine",
+      "meta.role.label": "Mon rôle",
+      "meta.role.val": "Data Analyst (Alternance)",
+      "meta.tools.label": "Outils principaux",
+      "note": "Cette étude de cas est un modèle provisoire construit autour d'un scénario métier simulé — remplacez les détails ci-dessous par vos vraies données, chiffres et captures d'écran au fur et à mesure.",
+      "challenge.h": "Le défi",
+      "approach.h": "L'approche",
+      "result.h": "Le résultat",
+      "reflect.h": "Ce que je ferais différemment",
+      "stack.h": "Outils &amp; stack",
+      "github.h": "Voir le code",
+      "github.p": "L'implémentation complète, incluant la préparation des données et le code de modélisation, est disponible sur GitHub.",
+      "github.btn": "Voir sur GitHub &rarr;",
+      "nav.prev": "&larr; projet précédent",
+      "nav.allwork": "tous les projets",
+      "nav.next": "projet suivant &rarr;",
+      "footer.contact": "Me contacter",
+      "cat": "Analyste de données",
+      "title": "Tableau de bord de performance backoffice télécom",
+      "metric": "Manquements SLA concentrés sur les demandes de port-out",
+      "challenge.p": "L'équipe backoffice d'un revendeur télécom traite un flux constant de demandes de port-in, port-out, désactivation et provisionnement, mais sans visibilité sur le volume de tickets, les délais de traitement et le respect des SLA par agent et par type de demande, les retards s'accumulent invisiblement jusqu'à ce que les clients commencent à se plaindre.",
+      "result.p": "Les demandes de port-out se sont révélées enfreindre le SLA bien plus souvent que les demandes de port-in ou de désactivation — un constat précis et exploitable plutôt qu'une simple impression que « le backoffice a du retard ».",
+      "reflect.p": "La segmentation SQL par type de demande était simple — le plus difficile a été de s'accorder avec l'équipe opérations sur ce qui constituait réellement un manquement au SLA, les définitions variant de façon informelle selon le type de demande avant ce projet. La prochaine fois, je clarifierais ces définitions avec les parties prenantes avant d'écrire la moindre requête.",
+      "approach.1": "Interrogé et segmenté les données de tickets backoffice sous SQL par type de demande (port-in, port-out, désactivation, projets de provisionnement, mises à jour de listings), agent et statut.",
+      "approach.2": "Calculé le délai de traitement et le respect des SLA pour chaque type de demande afin d'identifier où se concentraient les retards.",
+      "approach.3": "Construit une vue de charge de travail par agent pour visualiser le volume de tickets et les retards par agent, pas seulement par type de demande.",
+      "approach.4": "Livré les résultats sous forme de rapport Power BI accompagné d'une synthèse exécutive d'une page en français, dans le format utilisé en interne par l'équipe opérations du revendeur.",
+      "result.item.1": "Tickets décomposés selon 5 types de demandes",
+      "result.item.2": "Vue de charge de travail et de retard par agent construite à partir des données brutes de tickets",
+      "result.item.3": "Synthèse exécutive d'une page livrée en français",
+    }
+  };
+</script>
+<script src="../assets/case-study.js"></script>
+
+</body>
+</html>

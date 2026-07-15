@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>End-to-end supply chain dashboard — Ismail Tazi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case-study.css">
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="../index.html">Ismail <span>T.</span></a>
+    <div class="back-link">
+      <a href="../index.html#work" data-i18n="nav.back">&larr; all projects</a>
+      <button class="lang-toggle mono" id="langToggle" aria-label="Switch language">FR</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="case-header">
+      <span class="case-eyebrow" data-i18n="cat">Data Analyst</span>
+      <h1 data-i18n="title">End-to-end supply chain dashboard</h1>
+      <div class="case-metric" data-i18n="metric">Lead-time bottleneck traced to raw-material procurement</div>
+
+      <div class="case-meta">
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.field.label">Field</span>
+          <span class="meta-val" data-i18n="cat">Data Analyst</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.role.label">My role</span>
+          <span class="meta-val" data-i18n="meta.role.val">Data Analyst (Work-Study)</span>
+        </div>
+        <div class="case-meta-item">
+          <span class="meta-label" data-i18n="meta.tools.label">Core tools</span>
+          <span class="meta-val">SQL · Power BI · DAX</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-visual" aria-hidden="true">
+      <svg viewBox="0 0 240 168" xmlns="http://www.w3.org/2000/svg">
+            <rect x="18" y="76" width="40" height="26" rx="3" fill="#C1121F" opacity="0.9"/>
+            <rect x="70" y="76" width="40" height="26" rx="3" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.85"/>
+            <rect x="122" y="76" width="40" height="26" rx="3" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.85"/>
+            <rect x="174" y="76" width="40" height="26" rx="3" stroke="#FDF0D5" stroke-width="1.5" fill="none" opacity="0.85"/>
+            <path d="M58 89 H70" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <path d="M110 89 H122" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <path d="M162 89 H174" stroke="#FDF0D5" stroke-width="1.5" opacity="0.6"/>
+            <circle cx="64" cy="89" r="2" fill="#FDF0D5"/>
+            <circle cx="116" cy="89" r="2" fill="#FDF0D5"/>
+            <circle cx="168" cy="89" r="2" fill="#FDF0D5"/>
+            <text x="38" y="118" font-family="JetBrains Mono, monospace" font-size="7.5" fill="#FDF0D5" text-anchor="middle" opacity="0.9">procurement</text>
+            <text x="90" y="118" font-family="JetBrains Mono, monospace" font-size="7.5" fill="#FDF0D5" text-anchor="middle" opacity="0.55">production</text>
+            <text x="142" y="118" font-family="JetBrains Mono, monospace" font-size="7.5" fill="#FDF0D5" text-anchor="middle" opacity="0.55">warehouse</text>
+            <text x="194" y="118" font-family="JetBrains Mono, monospace" font-size="7.5" fill="#FDF0D5" text-anchor="middle" opacity="0.55">distribution</text>
+      </svg>
+    </div>
+
+    <span class="placeholder-note" data-i18n="note">This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.</span>
+
+    <div class="case-body" style="margin-top:40px;">
+
+      <div class="case-section">
+        <h2 data-i18n="challenge.h">The challenge</h2>
+        <p data-i18n="challenge.p">An industrial manufacturer needed visibility across its entire supply chain — from raw-material procurement, through production, to warehousing and final distribution — but each stage lived in a separate system with no shared view, making it impossible to see where a delay in getting product to customers actually originated.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="approach.h">The approach</h2>
+        <ul>
+          <li data-i18n="approach.1">Modeled the full supply chain in SQL as a galaxy schema — four fact tables (fact_procurement, fact_production, fact_inventory, fact_shipments) sharing common dimensions (dim_date, dim_product, dim_plant, dim_supplier) so every stage could be compared on the same terms.</li>
+          <li data-i18n="approach.2">Loaded and validated data from each stage, resolving mismatched product and date keys across the four source systems.</li>
+          <li data-i18n="approach.3">Connected the model to Power BI and wrote DAX measures for lead time, on-time delivery, and inventory turnover at each stage.</li>
+          <li data-i18n="approach.4">Built a supply-chain-manager-facing dashboard with drill-through from an end-to-end view down to a single supplier, plant, or shipment.</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="result.h">The result</h2>
+        <p data-i18n="result.p">The dashboard traced a recurring delivery delay back to its actual source — supplier lead times on one raw-material category — instead of the distribution team being blamed for a bottleneck that started three stages upstream.</p>
+        <ul style="margin-top:14px;">
+          <li data-i18n="result.item.1">Galaxy schema linking 4 fact tables across the supply chain</li>
+          <li data-i18n="result.item.2">DAX-driven lead time and inventory turnover at every stage</li>
+          <li data-i18n="result.item.3">Drill-through from end-to-end view to a single supplier or shipment</li>
+        </ul>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="reflect.h">What I'd do differently</h2>
+        <p data-i18n="reflect.p">Modeling four connected fact tables was a big step up from a single star schema — the hardest part was making sure dim_product and dim_date meant exactly the same thing in every source system, since one mismatched key silently breaks the whole chain. I'd build a shared dimension-key validation step earlier next time, before connecting anything to Power BI.</p>
+      </div>
+
+      <div class="case-section">
+        <h2 data-i18n="stack.h">Tools &amp; stack</h2>
+        <div class="stack-tags"><span>SQL</span><span>Power BI</span><span>DAX</span><span>Data Modeling</span></div>
+      </div>
+
+      <!-- GitHub link: add the real repo URL below once this project has a public repo -->
+      <div class="github-cta">
+        <div>
+          <h3 data-i18n="github.h">View the code</h3>
+          <p data-i18n="github.p">The full implementation, including data prep and modeling code, is available on GitHub.</p>
+        </div>
+        <a class="github-btn" href="#" target="_blank" rel="noopener" data-i18n="github.btn">View on GitHub &rarr;</a>
+      </div>
+
+    </div>
+
+    <div class="case-next">
+      <a href="automated-ingestion-pipeline.html" data-i18n="nav.prev">&larr; previous project</a>
+      <a href="../index.html#work" data-i18n="nav.allwork">all projects</a>
+      <a href="telecom-backoffice-dashboard.html" data-i18n="nav.next">next project &rarr;</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ismail Tazi</span>
+    <a href="../index.html#contact" data-i18n="footer.contact">Get in touch</a>
+  </div>
+</footer>
+
+<script>
+  window.CASE_TITLES = { en: "End-to-end supply chain dashboard — Ismail Tazi", fr: "Tableau de bord de la chaîne d'approvisionnement de bout en bout — Ismail Tazi" };
+  window.CASE_TRANSLATIONS = {
+    en: {
+      "nav.back": "&larr; all projects",
+      "meta.field.label": "Field",
+      "meta.role.label": "My role",
+      "meta.role.val": "Data Analyst (Work-Study)",
+      "meta.tools.label": "Core tools",
+      "note": "This case study is a draft template built around a simulated business scenario — replace the details below with your real data, numbers, and screenshots as you build it out.",
+      "challenge.h": "The challenge",
+      "approach.h": "The approach",
+      "result.h": "The result",
+      "reflect.h": "What I'd do differently",
+      "stack.h": "Tools &amp; stack",
+      "github.h": "View the code",
+      "github.p": "The full implementation, including data prep and modeling code, is available on GitHub.",
+      "github.btn": "View on GitHub &rarr;",
+      "nav.prev": "&larr; previous project",
+      "nav.allwork": "all projects",
+      "nav.next": "next project &rarr;",
+      "footer.contact": "Get in touch",
+      "cat": "Data Analyst",
+      "title": "End-to-end supply chain dashboard",
+      "metric": "Lead-time bottleneck traced to raw-material procurement",
+      "challenge.p": "An industrial manufacturer needed visibility across its entire supply chain — from raw-material procurement, through production, to warehousing and final distribution — but each stage lived in a separate system with no shared view, making it impossible to see where a delay in getting product to customers actually originated.",
+      "result.p": "The dashboard traced a recurring delivery delay back to its actual source — supplier lead times on one raw-material category — instead of the distribution team being blamed for a bottleneck that started three stages upstream.",
+      "reflect.p": "Modeling four connected fact tables was a big step up from a single star schema — the hardest part was making sure dim_product and dim_date meant exactly the same thing in every source system, since one mismatched key silently breaks the whole chain. I'd build a shared dimension-key validation step earlier next time, before connecting anything to Power BI.",
+      "approach.1": "Modeled the full supply chain in SQL as a galaxy schema — four fact tables (fact_procurement, fact_production, fact_inventory, fact_shipments) sharing common dimensions (dim_date, dim_product, dim_plant, dim_supplier) so every stage could be compared on the same terms.",
+      "approach.2": "Loaded and validated data from each stage, resolving mismatched product and date keys across the four source systems.",
+      "approach.3": "Connected the model to Power BI and wrote DAX measures for lead time, on-time delivery, and inventory turnover at each stage.",
+      "approach.4": "Built a supply-chain-manager-facing dashboard with drill-through from an end-to-end view down to a single supplier, plant, or shipment.",
+      "result.item.1": "Galaxy schema linking 4 fact tables across the supply chain",
+      "result.item.2": "DAX-driven lead time and inventory turnover at every stage",
+      "result.item.3": "Drill-through from end-to-end view to a single supplier or shipment",
+    },
+    fr: {
+      "nav.back": "&larr; tous les projets",
+      "meta.field.label": "Domaine",
+      "meta.role.label": "Mon rôle",
+      "meta.role.val": "Data Analyst (Alternance)",
+      "meta.tools.label": "Outils principaux",
+      "note": "Cette étude de cas est un modèle provisoire construit autour d'un scénario métier simulé — remplacez les détails ci-dessous par vos vraies données, chiffres et captures d'écran au fur et à mesure.",
+      "challenge.h": "Le défi",
+      "approach.h": "L'approche",
+      "result.h": "Le résultat",
+      "reflect.h": "Ce que je ferais différemment",
+      "stack.h": "Outils &amp; stack",
+      "github.h": "Voir le code",
+      "github.p": "L'implémentation complète, incluant la préparation des données et le code de modélisation, est disponible sur GitHub.",
+      "github.btn": "Voir sur GitHub &rarr;",
+      "nav.prev": "&larr; projet précédent",
+      "nav.allwork": "tous les projets",
+      "nav.next": "projet suivant &rarr;",
+      "footer.contact": "Me contacter",
+      "cat": "Analyste de données",
+      "title": "Tableau de bord de la chaîne d'approvisionnement de bout en bout",
+      "metric": "Goulot d'étranglement des délais retracé jusqu'à l'approvisionnement en matières premières",
+      "challenge.p": "Un fabricant industriel avait besoin d'une visibilité sur l'ensemble de sa chaîne d'approvisionnement — de l'achat de matières premières à la production, en passant par l'entreposage et la distribution finale — mais chaque étape vivait dans un système séparé sans vue commune, rendant impossible de savoir où un retard de livraison au client trouvait réellement son origine.",
+      "result.p": "Le tableau de bord a permis de retracer un retard de livraison récurrent jusqu'à sa véritable origine — les délais fournisseurs sur une catégorie de matière première — plutôt que d'en attribuer la faute à l'équipe distribution pour un goulot d'étranglement apparu trois étapes en amont.",
+      "reflect.p": "Modéliser quatre tables de faits connectées représentait un vrai saut par rapport à un simple schéma en étoile — le plus difficile a été de s'assurer que dim_product et dim_date signifiaient exactement la même chose dans chaque système source, car une seule clé mal alignée casse silencieusement toute la chaîne. La prochaine fois, je construirais une étape de validation des clés de dimension partagées plus tôt, avant de connecter quoi que ce soit à Power BI.",
+      "approach.1": "Modélisé la chaîne d'approvisionnement complète sous SQL en schéma en constellation — quatre tables de faits (fact_procurement, fact_production, fact_inventory, fact_shipments) partageant des dimensions communes (dim_date, dim_product, dim_plant, dim_supplier) pour comparer chaque étape sur les mêmes bases.",
+      "approach.2": "Chargé et validé les données de chaque étape, en résolvant les clés produit et date incohérentes entre les quatre systèmes sources.",
+      "approach.3": "Connecté le modèle à Power BI et écrit des mesures DAX pour le délai, la livraison dans les délais et la rotation des stocks à chaque étape.",
+      "approach.4": "Construit un tableau de bord destiné aux responsables de la chaîne d'approvisionnement avec exploration en détail, d'une vue de bout en bout jusqu'à un fournisseur, une usine ou une expédition unique.",
+      "result.item.1": "Schéma en constellation reliant 4 tables de faits sur toute la chaîne d'approvisionnement",
+      "result.item.2": "Délai et rotation des stocks pilotés par DAX à chaque étape",
+      "result.item.3": "Exploration en détail, de la vue de bout en bout jusqu'à un fournisseur ou une expédition unique",
+    }
+  };
+</script>
+<script src="../assets/case-study.js"></script>
+
+</body>
+</html>
